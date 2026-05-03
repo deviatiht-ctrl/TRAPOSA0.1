@@ -1,0 +1,6 @@
+{
+  "root": "traposa",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
+}
