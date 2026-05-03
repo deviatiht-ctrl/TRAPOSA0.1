@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — TRAPOSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-page">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <img src="../../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" style="max-width: 160px; height: auto;">
+    </div>
+    <nav>
+      <div class="admin-nav-section">Prensipal</div>
+      <ul class="admin-nav">
+        <li class="admin-nav-item"><a href="./dashboard.html" class="admin-nav-link active"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
+        <li class="admin-nav-item"><a href="./projets.html" class="admin-nav-link"><i data-lucide="folder"></i>Projè</a></li>
+        <li class="admin-nav-item"><a href="./actualites.html" class="admin-nav-link"><i data-lucide="file-text"></i>Aktualite</a></li>
+        <li class="admin-nav-item"><a href="./dons.html" class="admin-nav-link"><i data-lucide="heart"></i>Don</a></li>
+      </ul>
+      <div class="admin-nav-section">Jesyon</div>
+      <ul class="admin-nav">
+        <li class="admin-nav-item"><a href="./equipe.html" class="admin-nav-link"><i data-lucide="users"></i>Ekip</a></li>
+        <li class="admin-nav-item"><a href="./benevoles.html" class="admin-nav-link"><i data-lucide="user-check"></i>Bénévòl</a></li>
+        <li class="admin-nav-item"><a href="./partenaires.html" class="admin-nav-link"><i data-lucide="handshake"></i>Partenè</a></li>
+        <li class="admin-nav-item"><a href="./parametres.html" class="admin-nav-link"><i data-lucide="settings"></i>Paramèt</a></li>
+      </ul>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-user">
+        <div class="admin-user-avatar">A</div>
+        <div class="admin-user-info">
+          <div class="admin-user-name">Admin</div>
+          <div class="admin-user-role">Administratè</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Tablo Administratè</h1>
+      <div class="admin-header-actions">
+        <a href="../../index.html" class="btn btn-outline" target="_blank">Wè Sit</a>
+        <button onclick="auth.signOut()" class="btn btn-outline">Dekonekte</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="admin-stats">
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon"><i data-lucide="heart"></i></div>
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">G450K</div>
+          <div class="admin-stat-label">Don Ane Sa</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon"><i data-lucide="users"></i></div>
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">12,450</div>
+          <div class="admin-stat-label">Benefisiè</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon"><i data-lucide="folder"></i></div>
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">48</div>
+          <div class="admin-stat-label">Projè Aktif</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon"><i data-lucide="user-check"></i></div>
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">500+</div>
+          <div class="admin-stat-label">Bénévòl</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Donations -->
+    <div class="admin-card">
+      <div class="admin-card-header">
+        <h3>Dènye Don</h3>
+        <a href="./dons.html" class="btn btn-outline btn-sm">Wè Tout</a>
+      </div>
+      <div class="admin-card-body">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Donatè</th>
+              <th>Koz</th>
+              <th>Montant</th>
+              <th>Dat</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Marie B.</td>
+              <td>Edikasyon</td>
+              <td>G1,000</td>
+              <td>2 jou pase</td>
+              <td><span class="admin-status confirmed">Konfime</span></td>
+            </tr>
+            <tr>
+              <td>Jean D.</td>
+              <td>Sante</td>
+              <td>$50</td>
+              <td>3 jou pase</td>
+              <td><span class="admin-status confirmed">Konfime</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="admin-card">
+      <div class="admin-card-header">
+        <h3>Aksyon Rapid</h3>
+      </div>
+      <div class="admin-card-body">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="./projets.html?action=new" class="btn btn-primary">
+            <i data-lucide="plus"></i>Nouvo Pwojè
+          </a>
+          <a href="./actualites.html?action=new" class="btn btn-outline">
+            <i data-lucide="plus"></i>Nouvo Atik
+          </a>
+          <a href="./benevoles.html" class="btn btn-outline">
+            <i data-lucide="users"></i>Gere Bénévòl
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/auth.js"></script>
+  <script>
+    requireAdmin();
+  </script>
+</body>
+</html>

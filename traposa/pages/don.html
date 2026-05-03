@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fè Yon Don — TRAPOSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/don.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-pill">
+        <a href="../index.html" class="navbar-brand"><img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo"></a>
+        <ul class="navbar-nav">
+          <li><a href="../index.html" class="nav-link">Akèy</a></li>
+          <li><a href="./projets.html" class="nav-link">Projè</a></li>
+          <li><a href="./don.html" class="nav-link active">Don</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="donation-page">
+    <div class="container">
+      <div class="donation-header">
+        <h1>Fè Yon Don</h1>
+        <p>Chak kontribisyon, kèlkeswa ti kras li ye, ka chanje lavi yon moun nan Ayiti.</p>
+      </div>
+
+      <div class="donation-grid">
+        <div class="donation-form-wrapper">
+          <!-- Causes -->
+          <div class="causes-section">
+            <h2>1. Chwazi Koz ou vle sipote</h2>
+            <div class="causes-grid">
+              <div class="cause-card selected" data-cause="edikasyon">
+                <div class="cause-icon"><i data-lucide="book-open"></i></div>
+                <div class="cause-info"><h4>Edikasyon Timoun</h4><p>Asire aksè edikasyon pou tout timoun yo</p></div>
+              </div>
+              <div class="cause-card" data-cause="sante">
+                <div class="cause-icon"><i data-lucide="heart"></i></div>
+                <div class="cause-info"><h4>Sante Kominote</h4><p>Sèvis sante debaz pou kominote vilnerab</p></div>
+              </div>
+              <div class="cause-card" data-cause="ijans">
+                <div class="cause-icon"><i data-lucide="alert-triangle"></i></div>
+                <div class="cause-info"><h4>Ijans Imanitè</h4><p>Repon rapid pou kriz imanitè yo</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amount -->
+          <div class="form-section">
+            <h3><span class="step-number">2</span> Chwazi Montant</h3>
+            <div class="currency-selector">
+              <button class="currency-btn selected" data-currency="HTG">HTG</button>
+              <button class="currency-btn" data-currency="USD">USD</button>
+              <button class="currency-btn" data-currency="EUR">EUR</button>
+            </div>
+            <div class="amount-presets">
+              <button class="amount-btn" data-amount="500">500</button>
+              <button class="amount-btn selected" data-amount="1000">1,000</button>
+              <button class="amount-btn" data-amount="5000">5,000</button>
+              <button class="amount-btn" data-amount="10000">10,000</button>
+            </div>
+            <div class="amount-custom">
+              <span class="currency-symbol">G</span>
+              <input type="number" class="form-input" placeholder="Lòt montant" min="1">
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-section">
+            <h3><span class="step-number">3</span> Metòd Pèman</h3>
+            <div class="payment-methods">
+              <label class="payment-method selected">
+                <input type="radio" name="payment" value="moncash" checked>
+                <div class="payment-icon"><i data-lucide="smartphone"></i></div>
+                <span class="payment-label">MonCash</span>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="natcash">
+                <div class="payment-icon"><i data-lucide="wallet"></i></div>
+                <span class="payment-label">NatCash</span>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="stripe">
+                <div class="payment-icon"><i data-lucide="credit-card"></i></div>
+                <span class="payment-label">Kat Kredi</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Donor Info -->
+          <div class="form-section">
+            <h3><span class="step-number">4</span> Enfòmasyon Ou</h3>
+            <div class="donor-info-grid">
+              <div class="form-group">
+                <label class="form-label">Non (Opsyonèl)</label>
+                <input type="text" class="form-input" name="donor_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Imèl (Opsyonèl)</label>
+                <input type="email" class="form-input" name="donor_email">
+              </div>
+            </div>
+            <div class="anonymous-toggle">
+              <input type="checkbox" id="anonymous" name="is_anonymous">
+              <label for="anonymous">Fè don sa a anonim</label>
+            </div>
+          </div>
+
+          <div class="form-error" style="display: none;"></div>
+
+          <button type="submit" class="btn btn-primary btn-lg submit-donation-btn" style="width: 100%;">
+            <i data-lucide="lock" style="width: 18px; height: 18px;"></i>
+            Kontribye Kounye a
+          </button>
+        </div>
+
+        <!-- Summary -->
+        <aside class="donation-summary">
+          <h3>Rezime Don</h3>
+          <div class="donation-ticker" style="margin-bottom: 1.5rem;">
+            <div class="ticker-header"><i data-lucide="activity"></i> Dènye don</div>
+            <div class="ticker-item"><span class="ticker-donor">Marie B.</span><span class="ticker-amount">G1,000</span></div>
+            <div class="ticker-item"><span class="ticker-donor">Yon zanmi</span><span class="ticker-amount">$50</span></div>
+          </div>
+          <div class="summary-row"><span class="summary-label">Koz:</span><span class="summary-value summary-cause">Edikasyon Timoun</span></div>
+          <div class="summary-row"><span class="summary-label">Montant:</span><span class="summary-value summary-amount">G1,000</span></div>
+          <div class="summary-total"><span class="summary-label">Total:</span><span class="summary-value">G1,000</span></div>
+          <div class="trust-indicators">
+            <span class="trust-indicator"><i data-lucide="shield-check"></i>Sekirite SSL</span>
+            <span class="trust-indicator"><i data-lucide="lock"></i>Pwoteksyon Done</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="text-align:center;color:rgba(255,255,255,0.6);">© 2024 TRAPOSA — Pèman Sekirè</p>
+    </div>
+  </footer>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon"><i data-lucide="check"></i></div>
+      <h2>Mèsi pou Don Ou a!</h2>
+      <p>Kontribisyon ou pral ede nou kontinye travay nou nan kominote ayisyen yo.</p>
+      <div class="modal-actions">
+        <a href="../index.html" class="btn btn-primary">Retounen Akèy</a>
+        <button class="btn btn-outline" onclick="generateReceipt()">Telechaje Resi</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 4rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
+          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti.</p>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Lyen Rapid</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Akèy</a></li>
+            <li><a href="./mission.html">Misyon</a></li>
+            <li><a href="./projets.html">Projè</a></li>
+            <li><a href="./don.html">Fè Don</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Kontakte</h4>
+          <div class="footer-contact">
+            <p>Rue Capois, Pòtoprens, Ayiti</p>
+            <p>+509 2813-4567</p>
+            <p>info@traposa.ht</p>
+          </div>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Rezo Sosyal</h4>
+          <div class="footer-social">
+            <a href="#"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/don.js"></script>
+</body>
+</html>

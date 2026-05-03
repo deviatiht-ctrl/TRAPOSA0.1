@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vin Bénévòl — TRAPOSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-pill">
+        <a href="../index.html" class="navbar-brand"><img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo"></a>
+        <ul class="navbar-nav">
+          <li><a href="../index.html" class="nav-link">Akèy</a></li>
+          <li><a href="./benevoles.html" class="nav-link active">Bénévòl</a></li>
+          <li><a href="./don.html" class="nav-link">Don</a></li>
+        </ul>
+        <div class="navbar-right">
+          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main style="padding-top: calc(var(--navbar-height) + 2rem);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+        <div>
+          <span style="color: var(--clr-green); font-weight: 600; text-transform: uppercase; font-size: 0.875rem;">Vin Bénévòl</span>
+          <h1 style="margin: 1rem 0;">Mete Konpetans Ou nan Sèvis Kominote a</h1>
+          <p style="color: var(--clr-text-secondary); font-size: 1.125rem; line-height: 1.7;">
+            Rejwenn yon ekip pasyone ki dedye pou transfòme lavi moun nan Ayiti. Chak talan gen valè — ann ansanm kreye chanjman.
+          </p>
+          <ul style="list-style: none; margin-top: 2rem;">
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i data-lucide="check-circle" style="color: var(--clr-green);"></i>
+              <span>Fòmasyon pwofesyonèl gratis</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i data-lucide="check-circle" style="color: var(--clr-green);"></i>
+              <span>Rezo entènasyonal nan sektè imanitè a</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i data-lucide="check-circle" style="color: var(--clr-green);"></i>
+              <span>Sètifika rekonesans</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <i data-lucide="check-circle" style="color: var(--clr-green);"></i>
+              <span>Ekperyans ki chanje lavi</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card" style="padding: 2rem;">
+          <h2 style="margin-bottom: 1.5rem;">Fòm Enskripsyon</h2>
+          <form class="volunteer-registration-form">
+            <div class="form-group">
+              <label class="form-label">Non Konplè *</label>
+              <input type="text" class="form-input" name="full_name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Imèl *</label>
+              <input type="email" class="form-input" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefòn</label>
+              <input type="tel" class="form-input" name="phone">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Depatman Preferans</label>
+              <select class="form-select" name="department">
+                <option value="">Chwazi...</option>
+                <option value="edikasyon">Edikasyon</option>
+                <option value="sante">Sante</option>
+                <option value="agrikilti">Agrikilti</option>
+                <option value="kominikasyon">Kominikasyon</option>
+                <option value="lojistik">Lojistik</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Konpetans</label>
+              <div class="skills-select" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Poukisa ou vle vin bénévòl?</label>
+              <textarea class="form-textarea" name="motivation" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Soumèt Demann lan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top: 4rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
+          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti.</p>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Lyen Rapid</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Akèy</a></li>
+            <li><a href="./mission.html">Misyon</a></li>
+            <li><a href="./projets.html">Projè</a></li>
+            <li><a href="./don.html">Fè Don</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Kontakte</h4>
+          <div class="footer-contact">
+            <p>Rue Capois, Pòtoprens, Ayiti</p>
+            <p>+509 2813-4567</p>
+            <p>info@traposa.ht</p>
+          </div>
+        </div>
+        <div class="footer-links-section">
+          <h4 class="footer-title">Rezo Sosyal</h4>
+          <div class="footer-social">
+            <a href="#"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="youtube" style="width:20px;height:20px;"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="../assets/js/benevoles.js"></script>
+</body>
+</html>

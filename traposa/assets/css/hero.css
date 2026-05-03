@@ -1,0 +1,281 @@
+/* TRAPOSA Hero Section */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--navbar-height) + var(--space-8));
+  padding-bottom: var(--space-16);
+  background: var(--clr-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+/* Left Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--clr-green);
+  margin-bottom: var(--space-6);
+  padding: var(--space-2) var(--space-4);
+  background: var(--clr-bg-warm);
+  border-radius: var(--radius-full);
+}
+
+.hero-title {
+  font-family: var(--font-headline);
+  font-size: clamp(2.5rem, 5vw, 3.875rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+}
+
+.hero-title .highlight-green {
+  color: var(--clr-green);
+}
+
+.hero-description {
+  font-size: var(--text-lg);
+  color: var(--clr-text-secondary);
+  max-width: 500px;
+  margin-bottom: var(--space-8);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+
+/* Impact Stats */
+.hero-stats {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  text-align: left;
+}
+
+.hero-stat-number {
+  font-family: var(--font-headline);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: var(--clr-green);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Right Visual */
+.hero-visual {
+  position: relative;
+  height: 500px;
+}
+
+.hero-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  position: absolute;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-image-1 {
+  width: 280px;
+  height: 200px;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.hero-image-2 {
+  width: 240px;
+  height: 180px;
+  top: 80px;
+  right: 0;
+  z-index: 2;
+}
+
+.hero-image-3 {
+  width: 260px;
+  height: 200px;
+  bottom: 0;
+  left: 40px;
+  z-index: 1;
+}
+
+/* Abstract Shapes */
+.hero-shape {
+  position: absolute;
+  opacity: 0.8;
+}
+
+.hero-shape-circle {
+  width: 120px;
+  height: 120px;
+  background: var(--clr-green);
+  border-radius: var(--radius-full);
+  top: 40px;
+  right: 120px;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid var(--clr-red);
+  bottom: 100px;
+  right: 20px;
+  z-index: 4;
+  animation: float 5s ease-in-out infinite 0.5s;
+}
+
+.hero-shape-square {
+  width: 60px;
+  height: 60px;
+  background: var(--clr-yellow);
+  bottom: 60px;
+  left: 200px;
+  z-index: 4;
+  animation: float 7s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .hero-visual {
+    height: 400px;
+    order: -1;
+  }
+  
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+  }
+  
+  .hero-visual {
+    height: 300px;
+  }
+  
+  .hero-image-1 {
+    width: 180px;
+    height: 130px;
+  }
+  
+  .hero-image-2 {
+    width: 160px;
+    height: 120px;
+    top: 60px;
+  }
+  
+  .hero-image-3 {
+    width: 170px;
+    height: 130px;
+    left: 20px;
+  }
+  
+  .hero-shape-circle {
+    width: 80px;
+    height: 80px;
+    right: 80px;
+  }
+  
+  .hero-shape-triangle {
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 60px solid var(--clr-red);
+    bottom: 80px;
+  }
+  
+  .hero-shape-square {
+    width: 40px;
+    height: 40px;
+    left: 140px;
+  }
+  
+  .hero-stats {
+    gap: var(--space-6);
+  }
+  
+  .hero-stat-number {
+    font-size: var(--text-2xl);
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* GSAP Animation States */
+.hero-content > * {
+  opacity: 1;
+}
+
+.hero-image {
+  opacity: 1;
+}
+
+.hero-shape {
+  opacity: 0.8;
+}

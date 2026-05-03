@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Jere Aktualite — Admin TRAPOSA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-page">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <img src="../../assets/img/TRAPOSALOGO.png" alt="TRAPOSA">
+    </div>
+    <nav>
+      <ul class="admin-nav">
+        <li><a href="./dashboard.html" class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
+        <li><a href="./projets.html" class="admin-nav-link"><i data-lucide="folder"></i>Projè</a></li>
+        <li><a href="./actualites.html" class="admin-nav-link active"><i data-lucide="file-text"></i>Aktualite</a></li>
+        <li><a href="./dons.html" class="admin-nav-link"><i data-lucide="heart"></i>Don</a></li>
+        <li><a href="./equipe.html" class="admin-nav-link"><i data-lucide="users"></i>Ekip</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Jere Aktualite</h1>
+      <a href="?action=new" class="btn btn-primary"><i data-lucide="plus"></i>Nouvo Atik</a>
+    </div>
+
+    <div class="admin-card">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Tit</th>
+            <th>Kategori</th>
+            <th>Aktè</th>
+            <th>Dat</th>
+            <th>Status</th>
+            <th>Aksyon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TRAPOSA rive bay 1000 timoun manje</strong></td>
+            <td>Siksè</td>
+            <td>Ekip TRAPOSA</td>
+            <td>2 jou pase</td>
+            <td><span class="admin-status published">Pibliye</span></td>
+            <td class="table-actions">
+              <button class="table-btn"><i data-lucide="edit"></i></button>
+              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Ijans: Repons inondasyon</strong></td>
+            <td>Ijans</td>
+            <td>Dr. Beaumont</td>
+            <td>5 jou pase</td>
+            <td><span class="admin-status published">Pibliye</span></td>
+            <td class="table-actions">
+              <button class="table-btn"><i data-lucide="edit"></i></button>
+              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

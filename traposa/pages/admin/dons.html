@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>Jere Don — Admin TRAPOSA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body class="admin-page">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <img src="../../assets/img/TRAPOSALOGO.png" alt="TRAPOSA">
+    </div>
+    <nav>
+      <ul class="admin-nav">
+        <li><a href="./dashboard.html" class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
+        <li><a href="./dons.html" class="admin-nav-link active"><i data-lucide="heart"></i>Don</a></li>
+        <li><a href="./projets.html" class="admin-nav-link"><i data-lucide="folder"></i>Projè</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Jere Don</h1>
+      <div class="admin-header-actions">
+        <button class="btn btn-outline"><i data-lucide="download"></i>Ekspote</button>
+      </div>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat-card">
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">G450K</div>
+          <div class="admin-stat-label">Total Ane Sa</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-content">
+          <div class="admin-stat-value">156</div>
+          <div class="admin-stat-label">Don Mwa Sa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Dat</th>
+            <th>Donatè</th>
+            <th>Koz</th>
+            <th>Montant</th>
+            <th>Metòd</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2 jou pase</td>
+            <td>Marie B.</td>
+            <td>Edikasyon</td>
+            <td>G1,000</td>
+            <td>MonCash</td>
+            <td><span class="admin-status confirmed">Konfime</span></td>
+          </tr>
+          <tr>
+            <td>3 jou pase</td>
+            <td>Jean D.</td>
+            <td>Sante</td>
+            <td>$50</td>
+            <td>Stripe</td>
+            <td><span class="admin-status confirmed">Konfime</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
