@@ -1,6 +1,5 @@
 {
-  "root": "traposa",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/$1" }
+    { "source": "/(.*)", "destination": "/traposa/$1" }
   ]
 }
