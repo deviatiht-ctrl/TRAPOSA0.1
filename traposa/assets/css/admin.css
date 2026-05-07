@@ -1,8 +1,6 @@
 /* TRAPOSA Admin Panel Styles */
 
 .admin-page {
-  display: grid;
-  grid-template-columns: 260px 1fr;
   min-height: 100vh;
   background: var(--clr-bg-soft);
 }
@@ -133,7 +131,8 @@
 /* Admin Main Content */
 .admin-main {
   margin-left: 260px;
-  padding: var(--space-6);
+  padding: var(--space-8);
+  min-height: 100vh;
 }
 
 /* Admin Header */
@@ -592,10 +591,6 @@
 
 /* Responsive Admin */
 @media (max-width: 1024px) {
-  .admin-page {
-    grid-template-columns: 1fr;
-  }
-  
   .admin-sidebar {
     position: static;
     width: 100%;

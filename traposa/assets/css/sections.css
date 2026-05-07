@@ -25,6 +25,9 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
   transition: all var(--transition-base);
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 .mission-pillar:hover {
@@ -194,6 +197,8 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   transition: all var(--transition-base);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .project-card:hover {
@@ -355,6 +360,8 @@
   background: var(--clr-bg);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-xl);
+  opacity: 1 !important;
+  visibility: visible !important;
   overflow: hidden;
   transition: all var(--transition-base);
 }
@@ -730,17 +737,20 @@
 
 /* Responsive Sections */
 @media (max-width: 1024px) {
-  .mission-pillars,
   .projects-grid,
   .impact-grid,
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
+  .mission-pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .volunteer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -748,7 +758,10 @@
 }
 
 @media (max-width: 768px) {
-  .mission-pillars,
+  .mission-pillars {
+    grid-template-columns: 1fr;
+  }
+
   .projects-grid,
   .impact-grid,
   .news-grid {

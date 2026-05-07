@@ -83,18 +83,12 @@ function initProjectsFilter() {
       projectCards.forEach(card => {
         const category = card.dataset.category;
         if (filter === 'all' || category === filter) {
-          card.style.display = 'block';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          setTimeout(() => {
-            card.style.transition = 'all 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
+          card.style.display = '';
+          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          card.style.transform = 'translateY(0)';
         } else {
-          card.style.transition = 'all 0.4s ease';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
+          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          card.style.transform = 'translateY(10px)';
           setTimeout(() => {
             card.style.display = 'none';
           }, 400);
@@ -104,52 +98,25 @@ function initProjectsFilter() {
   });
 }
 
-// Load impact stats from Supabase settings (admin-managed)
+// Load impact stats - using default values (settings table uses named columns, not key-value)
 async function loadImpactStats() {
-  try {
-    // Fetch stats from traposa_settings table
-    const { data: settings, error } = await supabase
-      ?.from('traposa_settings')
-      .select('key, value')
-      .in('key', ['stat_beneficiaires', 'stat_projets', 'stat_benevoles', 'stat_dons_total']);
+  // traposa_settings uses named columns (org_name, slogan, etc.), not key-value pattern
+  // Using hardcoded defaults for impact stats
+  const statsDefaults = {
+    beneficiaires: 12450,
+    projets: 48,
+    benevoles: 500,
+    dons: 450000
+  };
 
-    if (error) throw error;
+  // Update impact items with default values
+  document.querySelectorAll('.impact-item').forEach(item => {
+    const numberEl = item.querySelector('.impact-number');
+    if (!numberEl) return;
 
-    // Create settings map
-    const statsMap = {};
-    settings?.forEach(s => {
-      statsMap[s.key] = parseInt(s.value) || 0;
-    });
-
-    // Update impact items with admin-managed values
-    document.querySelectorAll('.impact-item').forEach(item => {
-      const numberEl = item.querySelector('.impact-number');
-      if (!numberEl) return;
-
-      const statType = numberEl.dataset.stat; // beneficiaires, projets, benevoles, dons
-      let targetValue = 0;
-
-      switch(statType) {
-        case 'beneficiaires':
-          targetValue = statsMap['stat_beneficiaires'] || 12450;
-          break;
-        case 'projets':
-          targetValue = statsMap['stat_projets'] || 48;
-          break;
-        case 'benevoles':
-          targetValue = statsMap['stat_benevoles'] || 500;
-          break;
-        case 'dons':
-          targetValue = statsMap['stat_dons_total'] || 450000;
-          break;
-      }
-
-      numberEl.dataset.target = targetValue;
-    });
-  } catch (error) {
-    console.warn('Could not load impact stats from settings:', error);
-    // Keep default values from HTML
-  }
+    const statType = numberEl.dataset.stat; // beneficiaires, projets, benevoles, dons
+    numberEl.dataset.target = statsDefaults[statType] || 0;
+  });
 }
 
 // Impact counter animation
@@ -296,7 +263,7 @@ function initGSAPAnimations() {
     scrollTrigger: {
       trigger: '.mission-section',
       start: 'top 80%',
-      toggleActions: 'play none none reverse'
+      toggleActions: 'play none none none'
     },
     opacity: 0,
     y: 50,
@@ -310,7 +277,7 @@ function initGSAPAnimations() {
     scrollTrigger: {
       trigger: '.projects-grid',
       start: 'top 85%',
-      toggleActions: 'play none none reverse'
+      toggleActions: 'play none none none'
     },
     opacity: 0,
     y: 40,
@@ -324,7 +291,7 @@ function initGSAPAnimations() {
     scrollTrigger: {
       trigger: '.news-grid',
       start: 'top 85%',
-      toggleActions: 'play none none reverse'
+      toggleActions: 'play none none none'
     },
     opacity: 0,
     y: 40,

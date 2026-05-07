@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
@@ -17,12 +18,22 @@
       <div class="navbar-pill">
         <a href="../index.html" class="navbar-brand"><img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo"></a>
         <ul class="navbar-nav">
-          <li><a href="../index.html" class="nav-link">Akèy</a></li>
-          <li><a href="./contact.html" class="nav-link active">Kontakte</a></li>
-          <li><a href="./don.html" class="nav-link">Don</a></li>
+          <li><a href="../index.html" class="nav-link" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./equipe.html" class="nav-link" data-i18n="nav_team">Ekip</a></li>
+          <li><a href="./partenaires.html" class="nav-link" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link active" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         <div class="navbar-right">
-          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <a href="./don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
         </div>
       </div>
     </div>
@@ -30,8 +41,8 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>Kontakte Nou</h1>
-      <p>Nou vle tande ou. Voye yon mesaj bay ekip nou an.</p>
+      <h1 data-i18n="contact_page_title">Kontakte Nou</h1>
+      <p data-i18n="contact_page_subtitle">Nou vle tande ou. Voye yon mesaj bay ekip nou an.</p>
     </div>
   </header>
 
@@ -39,14 +50,14 @@
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
         <div>
-          <h2 style="margin-bottom: 1.5rem;">Enfòmasyon Kontak</h2>
+          <h2 style="margin-bottom: 1.5rem;" data-i18n="contact_info_title">Enfòmasyon Kontak</h2>
           <div style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <div style="width: 48px; height: 48px; background: var(--clr-bg-warm); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <i data-lucide="map-pin" style="color: var(--clr-green);"></i>
               </div>
               <div>
-                <p style="font-weight: 600; margin: 0;">Adrès</p>
+                <p style="font-weight: 600; margin: 0;" data-i18n="contact_address_label">Adrès</p>
                 <p style="color: var(--clr-text-secondary); margin: 0;">Rue Capois, Pòtoprens, Ayiti</p>
               </div>
             </div>
@@ -55,7 +66,7 @@
                 <i data-lucide="phone" style="color: var(--clr-green);"></i>
               </div>
               <div>
-                <p style="font-weight: 600; margin: 0;">Telefòn</p>
+                <p style="font-weight: 600; margin: 0;" data-i18n="contact_phone_label">Telefòn</p>
                 <p style="color: var(--clr-text-secondary); margin: 0;">+509 2813-4567</p>
               </div>
             </div>
@@ -64,7 +75,7 @@
                 <i data-lucide="mail" style="color: var(--clr-green);"></i>
               </div>
               <div>
-                <p style="font-weight: 600; margin: 0;">Imèl</p>
+                <p style="font-weight: 600; margin: 0;" data-i18n="contact_email_label">Imèl</p>
                 <p style="color: var(--clr-text-secondary); margin: 0;">info@traposa.ht</p>
               </div>
             </div>
@@ -72,31 +83,31 @@
         </div>
 
         <div class="card" style="padding: 2rem;">
-          <h2 style="margin-bottom: 1.5rem;">Voye yon Mesaj</h2>
+          <h2 style="margin-bottom: 1.5rem;" data-i18n="contact_form_title">Voye yon Mesaj</h2>
           <form>
             <div class="form-group">
-              <label class="form-label">Non *</label>
+              <label class="form-label" data-i18n="contact_name">Non *</label>
               <input type="text" class="form-input" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Imèl *</label>
+              <label class="form-label" data-i18n="contact_email">Imèl *</label>
               <input type="email" class="form-input" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Sijè</label>
+              <label class="form-label" data-i18n="contact_subject">Sijè</label>
               <select class="form-select">
-                <option>Enfòmasyon sou don</option>
-                <option>Vin bénévòl</option>
-                <option>Partenarya</option>
-                <option>Presse</option>
-                <option>Lòt</option>
+                <option data-i18n="contact_subject_don">Enfòmasyon sou don</option>
+                <option data-i18n="contact_subject_vol">Vin bénévòl</option>
+                <option data-i18n="contact_subject_partner">Partenarya</option>
+                <option data-i18n="contact_subject_press">Laprès</option>
+                <option data-i18n="contact_subject_other">Lòt</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Mesaj *</label>
+              <label class="form-label" data-i18n="contact_message">Mesaj *</label>
               <textarea class="form-textarea" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Voye Mesaj</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="contact_send_btn">Voye Mesaj</button>
           </form>
         </div>
       </div>
@@ -108,10 +119,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Akèy</a></li>
             <li><a href="./mission.html">Misyon</a></li>
@@ -120,7 +131,7 @@
           </ul>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens, Ayiti</p>
             <p>+509 2813-4567</p>
@@ -128,21 +139,24 @@
           </div>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>
 
   <script>lucide.createIcons();</script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/navbar.js"></script>
 </body>
 </html>

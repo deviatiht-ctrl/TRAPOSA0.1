@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
@@ -19,12 +20,22 @@
       <div class="navbar-pill">
         <a href="../index.html" class="navbar-brand"><img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo"></a>
         <ul class="navbar-nav">
-          <li><a href="../index.html" class="nav-link">Akèy</a></li>
-          <li><a href="./actualites.html" class="nav-link active">Aktualite</a></li>
-          <li><a href="./don.html" class="nav-link">Don</a></li>
+          <li><a href="../index.html" class="nav-link" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link active" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./equipe.html" class="nav-link" data-i18n="nav_team">Ekip</a></li>
+          <li><a href="./partenaires.html" class="nav-link" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         <div class="navbar-right">
-          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <a href="./don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
+          <button class="menu-toggle"><span></span><span></span><span></span></button>
         </div>
       </div>
     </div>
@@ -32,44 +43,47 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>Aktualite</h1>
-      <p>Rete enfòme sou dènye nouvèl ak rezilta nou yo.</p>
+      <h1 data-i18n="news_page_title">Aktualite</h1>
+      <p data-i18n="news_subtitle">Rete enfòme sou dènye nouvèl ak rezilta nou yo.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="container">
       <div class="projects-filter" style="margin-bottom: 2rem;">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="ijans">Ijans</button>
-        <button class="filter-btn" data-filter="siksè">Siksè</button>
-        <button class="filter-btn" data-filter="rapò">Rapò</button>
-        <button class="filter-btn" data-filter="partenariat">Partenariat</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
+        <button class="filter-btn" data-filter="ijans" data-i18n="filter_ijans">Ijans</button>
+        <button class="filter-btn" data-filter="siksè" data-i18n="news_badge_success">Siksè</button>
+        <button class="filter-btn" data-filter="pwogram" data-i18n="news2_badge">Pwogram</button>
+        <button class="filter-btn" data-filter="don" data-i18n="news3_badge">Don</button>
       </div>
 
       <div class="grid grid-3">
         <article class="card" style="overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;" alt="Lekòl Bè-de-En">
           <div style="padding: 1.5rem;">
-            <span class="badge badge-green">Siksè</span>
-            <h3 style="margin: 0.75rem 0;">TRAPOSA rive bay 1000 timoun manje</h3>
-            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">2 jou pase</p>
+            <span class="badge badge-green" data-i18n="news1_badge">Siksè</span>
+            <h3 style="margin: 0.75rem 0;" data-i18n="news1_title">Lekòl nasyonal Bè-de-En restriktire grasa TRAPOSA</h3>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="news1_date">2 jou pase</p>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary); margin-top: 0.5rem;" data-i18n="news1_excerpt">TRAPOSA reyisi restriktire lekòl nasyonal Bè-de-En ki bay plis timoun aksè a edikasyon.</p>
           </div>
         </article>
         <article class="card" style="overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;" alt="10000 timoun">
           <div style="padding: 1.5rem;">
-            <span class="badge badge-red">Ijans</span>
-            <h3 style="margin: 0.75rem 0;">Repons inondasyon Sid</h3>
-            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">5 jou pase</p>
+            <span class="badge badge-green" data-i18n="news2_badge">Pwogram</span>
+            <h3 style="margin: 0.75rem 0;" data-i18n="news2_title">Plis pase 10,000 timoun benefisye pwogram TRAPOSA an</h3>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="news2_date">1 semèn pase</p>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary); margin-top: 0.5rem;" data-i18n="news2_excerpt">Depi 2022–2023, TRAPOSA rive ede plis pase 10,000 timoun vilnerab nan plizyè depatman.</p>
           </div>
         </article>
         <article class="card" style="overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=300&fit=crop" style="width: 100%; height: 180px; object-fit: cover;" alt="Djina Guillet Delatour">
           <div style="padding: 1.5rem;">
-            <span class="badge badge-yellow">Partenariat</span>
-            <h3 style="margin: 0.75rem 0;">Nouvo akò ak UNESCO</h3>
-            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">10 jou pase</p>
+            <span class="badge badge-green" data-i18n="news3_badge">Don</span>
+            <h3 style="margin: 0.75rem 0;" data-i18n="news3_title">Djina Guillet Delatour apiye TRAPOSA ak don espesyal</h3>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="news3_date">2 semèn pase</p>
+            <p style="font-size: 0.875rem; color: var(--clr-text-secondary); margin-top: 0.5rem;" data-i18n="news3_excerpt">Otè Djina Guillet Delatour voye yon pati nan resèt liv li bay timoun ki nan bezwen.</p>
           </div>
         </article>
       </div>
@@ -81,19 +95,19 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti. TRANSFORMER pour Sauver.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
           
           <div class="footer-newsletter" style="margin-top:1.5rem;">
-            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;">Abònman Bilten Nou an</h4>
+            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;" data-i18n="footer_newsletter">Abònman Bilten Nou an</h4>
             <form class="footer-newsletter-form">
-              <input type="email" placeholder="Imèl ou" required>
-              <button type="submit">Abòne</button>
+              <input type="email" data-i18n-placeholder="footer_newsletter" placeholder="Imèl ou" required>
+              <button type="submit" data-i18n="footer_subscribe">Abòne</button>
             </form>
           </div>
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Akèy</a></li>
             <li><a href="./mission.html">Misyon</a></li>
@@ -104,7 +118,7 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens, Ayiti</p>
             <p>+509 2813-4567</p>
@@ -113,25 +127,27 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="play" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>
 
   <script>lucide.createIcons();</script>
   <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/navbar.js"></script>
   <script>
     // News filter functionality
     document.querySelectorAll('.filter-btn').forEach(btn => {

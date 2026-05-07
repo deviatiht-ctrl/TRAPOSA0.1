@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
@@ -17,12 +18,20 @@
       <div class="navbar-pill">
         <a href="../index.html" class="navbar-brand"><img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo"></a>
         <ul class="navbar-nav">
-          <li><a href="../index.html" class="nav-link">Akèy</a></li>
-          <li><a href="./partenaires.html" class="nav-link active">Partenè</a></li>
-          <li><a href="./don.html" class="nav-link">Don</a></li>
+          <li><a href="../index.html" class="nav-link" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./partenaires.html" class="nav-link active" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         <div class="navbar-right">
-          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <a href="./don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
         </div>
       </div>
     </div>
@@ -30,8 +39,8 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>Partenè Nou Yo</h1>
-      <p>Nou kolabore ak òganizasyon ki pataje vizyon nou pou yon Ayiti miyò.</p>
+      <h1 data-i18n="partners_page_title">Partenè Nou Yo</h1>
+      <p data-i18n="partners_page_subtitle">Nou kolabore ak moun ak òganizasyon ki pataje vizyon nou pou yon Ayiti miyò.</p>
     </div>
   </header>
 
@@ -40,33 +49,36 @@
       <div class="grid grid-3">
         <div class="card" style="padding: 2rem; text-align: center;">
           <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <span style="font-weight: 700; color: var(--clr-green); font-size: 1.5rem;">UNICEF</span>
+            <i data-lucide="book" style="width:48px;height:48px;color:var(--clr-green);"></i>
           </div>
-          <h3>UNICEF Ayiti</h3>
-          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">Patnè estratejik pou pwogram edikasyon ak sante timoun.</p>
+          <h3 data-i18n="p1_name">Djina Guillet Delatour</h3>
+          <p style="font-size: 0.75rem; font-weight: 600; color: var(--clr-green); margin-bottom: 0.5rem;" data-i18n="p1_role">Otè &amp; Donatè</p>
+          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="p1_desc">Otè ki apiye TRAPOSA — yon pati nan resèt liv li ale dirèkteman bay timoun ki nan bezwen.</p>
         </div>
         <div class="card" style="padding: 2rem; text-align: center;">
           <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <span style="font-weight: 700; color: var(--clr-yellow-dark); font-size: 1.5rem;">UNESCO</span>
+            <i data-lucide="home" style="width:48px;height:48px;color:var(--clr-yellow-dark);"></i>
           </div>
-          <h3>UNESCO</h3>
-          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">Kolaborasyon pou amelyore kalite edikasyon nan 20 lekòl.</p>
+          <h3 data-i18n="p2_name">Kominote Bè-de-En</h3>
+          <p style="font-size: 0.75rem; font-weight: 600; color: var(--clr-yellow-dark); margin-bottom: 0.5rem;" data-i18n="p2_role">Patnè Kominote</p>
+          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="p2_desc">Kominote lokal ki travay ansanm ak TRAPOSA pou amelyore edikasyon nan zòn nan.</p>
         </div>
         <div class="card" style="padding: 2rem; text-align: center;">
           <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <span style="font-weight: 700; color: var(--clr-red); font-size: 1.25rem;">USAID</span>
+            <i data-lucide="handshake" style="width:48px;height:48px;color:var(--clr-red);"></i>
           </div>
-          <h3>USAID Ayiti</h3>
-          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);">Sipò pou pwogram ijans imanitè ak rekonstriksyon.</p>
+          <h3 data-i18n="p3_name">Inisyativ Solidè</h3>
+          <p style="font-size: 0.75rem; font-weight: 600; color: var(--clr-red); margin-bottom: 0.5rem;" data-i18n="p3_role">Patnè Finansye</p>
+          <p style="font-size: 0.875rem; color: var(--clr-text-secondary);" data-i18n="p3_desc">Patnè ki kontribye nan finanse pwogram sipò timoun vilnerab yo.</p>
         </div>
       </div>
 
       <div style="background: var(--clr-bg-warm); padding: 3rem; border-radius: 1rem; text-align: center; margin-top: 3rem;">
-        <h2 style="margin-bottom: 1rem;">Vin Partenè Nou</h2>
-        <p style="color: var(--clr-text-secondary); max-width: 600px; margin: 0 auto 1.5rem;">
-          Èske ou reprezante yon òganizasyon ki vle kolabore avek nou? Ann ansanm kreye yon enpak pi gran.
+        <h2 style="margin-bottom: 1rem;" data-i18n="partners_become_title">Vin Partenè Nou</h2>
+        <p style="color: var(--clr-text-secondary); max-width: 600px; margin: 0 auto 1.5rem;" data-i18n="partners_become_desc">
+          Èske ou reprezante yon òganizasyon ki vle kolabore avèk nou? Ann ansanm kreye yon enpak pi gran.
         </p>
-        <a href="./contact.html" class="btn btn-primary">Kontakte Nou</a>
+        <a href="./contact.html" class="btn btn-primary" data-i18n="partners_contact_btn">Kontakte Nou</a>
       </div>
     </div>
   </section>
@@ -76,10 +88,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Akèy</a></li>
             <li><a href="./mission.html">Misyon</a></li>
@@ -88,7 +100,7 @@
           </ul>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens, Ayiti</p>
             <p>+509 2813-4567</p>
@@ -96,21 +108,24 @@
           </div>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>
 
   <script>lucide.createIcons();</script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/navbar.js"></script>
 </body>
 </html>

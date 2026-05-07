@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../../assets/css/variables.css">
   <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/admin.css">
@@ -59,28 +60,28 @@
       <div class="admin-stat-card">
         <div class="admin-stat-icon"><i data-lucide="heart"></i></div>
         <div class="admin-stat-content">
-          <div class="admin-stat-value">G450K</div>
+          <div class="admin-stat-value" id="statDons">G450K</div>
           <div class="admin-stat-label">Don Ane Sa</div>
         </div>
       </div>
       <div class="admin-stat-card">
         <div class="admin-stat-icon"><i data-lucide="users"></i></div>
         <div class="admin-stat-content">
-          <div class="admin-stat-value">12,450</div>
+          <div class="admin-stat-value" id="statBeneficiaires">12,450</div>
           <div class="admin-stat-label">Benefisiè</div>
         </div>
       </div>
       <div class="admin-stat-card">
         <div class="admin-stat-icon"><i data-lucide="folder"></i></div>
         <div class="admin-stat-content">
-          <div class="admin-stat-value">48</div>
+          <div class="admin-stat-value" id="statProjets">48</div>
           <div class="admin-stat-label">Projè Aktif</div>
         </div>
       </div>
       <div class="admin-stat-card">
         <div class="admin-stat-icon"><i data-lucide="user-check"></i></div>
         <div class="admin-stat-content">
-          <div class="admin-stat-value">500+</div>
+          <div class="admin-stat-value" id="statBenevoles">500+</div>
           <div class="admin-stat-label">Bénévòl</div>
         </div>
       </div>
@@ -148,7 +149,7 @@
   <script src="../../assets/js/supabase-client.js"></script>
   <script src="../../assets/js/auth.js"></script>
   <script>
-    requireAdmin();
+    (async () => { await requireAdmin(); })();
   </script>
 </body>
 </html>

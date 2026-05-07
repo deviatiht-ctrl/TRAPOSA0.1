@@ -11,10 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize dashboard
 async function initDashboard() {
-  // Check if user is authenticated
+  // Wait for auth to finish checking session before redirecting
+  if (typeof auth !== 'undefined' && auth.ready) {
+    await auth.ready;
+  }
+
   if (typeof auth !== 'undefined' && !auth.isAuthenticated) {
-    // Redirect to login
-    window.location.href = '/pages/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+    window.location.href = '../pages/login.html?redirect=' + encodeURIComponent(window.location.pathname);
     return;
   }
 

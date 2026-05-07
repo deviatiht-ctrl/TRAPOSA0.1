@@ -5,6 +5,7 @@
   <title>Paramèt — Admin TRAPOSA</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../../assets/css/variables.css">
   <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/admin.css">
@@ -85,6 +86,41 @@
       </div>
 
       <div class="settings-section">
+        <h4>Estatistik Sit (Enpak)</h4>
+        <p class="form-hint">Chif sa yo afiche nan paj akèy la. Antre nouvo vale yo.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Benefisiè Dirèk</label>
+            <input type="number" class="form-input" id="statBeneficiaires" value="12450" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Projè Aktif</label>
+            <input type="number" class="form-input" id="statProjets" value="48" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Bénévòl Aktif</label>
+            <input type="number" class="form-input" id="statBenevoles" value="500" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Don (Goud)</label>
+            <input type="number" class="form-input" id="statDons" value="450000" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Komin Travay</label>
+            <input type="number" class="form-input" id="statKomin" value="23" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Lane Eskperyans</label>
+            <input type="number" class="form-input" id="statExperience" value="10" min="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
         <h4>Opsyon</h4>
         <div class="toggle-switch">
           <label class="toggle-input">
@@ -102,5 +138,9 @@
   </main>
 
   <script>lucide.createIcons();</script>
+<script src="../../assets/js/supabase-client.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/admin/parametres.js"></script>
+<script>(async () => { await requireAdmin(); })();</script>
 </body>
 </html>

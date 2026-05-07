@@ -4,7 +4,7 @@ class AuthManager {
   constructor() {
     this.user = null;
     this.isAdmin = false;
-    this.init();
+    this.ready = this.init(); // expose promise so other scripts can await
   }
 
   async init() {
@@ -90,9 +90,9 @@ class AuthManager {
   }
 
   async signIn(email, password) {
-    if (!supabase) throw new Error('Supabase not initialized');
+    if (!window.supabase) return { error: { message: 'Supabase pa initialize. Recharge paj la.' } };
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await window.supabase.auth.signInWithPassword({
       email,
       password
     });
@@ -140,18 +140,20 @@ class AuthManager {
 const auth = new AuthManager();
 
 // Protect routes that require authentication
-function requireAuth() {
+async function requireAuth() {
+  await auth.ready;
   if (!auth.isAuthenticated) {
-    window.location.href = '/pages/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+    window.location.href = '../pages/login.html?redirect=' + encodeURIComponent(window.location.pathname);
     return false;
   }
   return true;
 }
 
 // Protect admin routes
-function requireAdmin() {
+async function requireAdmin() {
+  await auth.ready;
   if (!auth.isAuthenticated || !auth.isAdmin) {
-    window.location.href = '/pages/login.html?error=unauthorized';
+    window.location.href = '../pages/login.html?error=unauthorized';
     return false;
   }
   return true;

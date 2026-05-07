@@ -2,7 +2,7 @@
 -- Add initial admin user
 -- ⚠️ REPLACE admin@traposa.ht WITH YOUR REAL EMAIL BEFORE RUNNING
 
-INSERT INTO traposa_admins (email) VALUES ('admin@traposa.ht');
+INSERT INTO traposa_admins (email) VALUES ('laurorejeanclarens0@gmail.com');
 
 -- To add more admins later, use:
 -- INSERT INTO traposa_admins (email) VALUES ('another@email.com');

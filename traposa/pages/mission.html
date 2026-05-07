@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Misyon — TRAPOSA</title>
-  <meta name="description" content="Dekouvri misyon TRAPOSA: Transformer, Edike, Proteje.">
+  <meta name="description" content="Dekouvri misyon TRAPOSA: Edike, Sipòte, Pwoteje timoun vilnerab ann Ayiti.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,19 +27,24 @@
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo">
         </a>
         <ul class="navbar-nav">
-          <li><a href="../index.html" class="nav-link">Akèy</a></li>
-          <li><a href="./mission.html" class="nav-link active">Misyon</a></li>
-          <li><a href="./projets.html" class="nav-link">Projè</a></li>
-          <li><a href="./actualites.html" class="nav-link">Aktualite</a></li>
-          <li><a href="./equipe.html" class="nav-link">Ekip</a></li>
-          <li><a href="./partenaires.html" class="nav-link">Partenè</a></li>
-          <li><a href="./contact.html" class="nav-link">Kontakte</a></li>
+          <li><a href="../index.html" class="nav-link" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link active" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./equipe.html" class="nav-link" data-i18n="nav_team">Ekip</a></li>
+          <li><a href="./partenaires.html" class="nav-link" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         <div class="navbar-right">
           <button class="auth-btn" onclick="location.href='./login.html'">
             <i data-lucide="user" style="width:20px;height:20px;"></i>
           </button>
-          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <a href="./don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
           <button class="menu-toggle"><span></span><span></span><span></span></button>
         </div>
       </div>
@@ -49,10 +54,10 @@
   <!-- Mobile Nav -->
   <nav class="mobile-nav">
     <div class="mobile-nav-inner">
-      <a href="../index.html" class="mobile-nav-item"><i data-lucide="home"></i><span>Akèy</span></a>
-      <a href="./projets.html" class="mobile-nav-item"><i data-lucide="layers"></i><span>Projè</span></a>
-      <a href="./don.html" class="mobile-nav-item"><i data-lucide="heart"></i><span>Don</span></a>
-      <a href="./benevoles.html" class="mobile-nav-item"><i data-lucide="users"></i><span>Bénévòl</span></a>
+      <a href="../index.html" class="mobile-nav-item"><i data-lucide="home"></i><span data-i18n="nav_home">Akèy</span></a>
+      <a href="./projets.html" class="mobile-nav-item"><i data-lucide="layers"></i><span data-i18n="nav_projects">Projè</span></a>
+      <a href="./don.html" class="mobile-nav-item"><i data-lucide="heart"></i><span data-i18n="nav_donate">Don</span></a>
+      <a href="./benevoles.html" class="mobile-nav-item"><i data-lucide="users"></i><span data-i18n="volunteer_eyebrow">Bénévòl</span></a>
       <a href="./dashboard.html" class="mobile-nav-item"><i data-lucide="user"></i><span>Pwofil</span></a>
     </div>
   </nav>
@@ -60,9 +65,9 @@
   <!-- Page Header -->
   <header class="page-header" style="background: var(--clr-green-dark); color: white; text-align: center;">
     <div class="container" style="padding: 8rem 0 4rem;">
-      <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Misyon Nou</h1>
-      <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
-        twa pilye fondamantal ki gide tout aksyon nou yo pou yon Ayiti miyò
+      <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem;" data-i18n="mission_page_title">Misyon Nou</h1>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem; max-width: 600px; margin: 0 auto;" data-i18n="mission_page_subtitle">
+        Twa pilye fondamantal ki gide tout aksyon nou yo pou yon Ayiti miyò
       </p>
     </div>
   </header>
@@ -74,63 +79,63 @@
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 5rem;">
         <div style="text-align: center; padding: 3rem; background: var(--clr-bg-warm); border-radius: 1rem;">
           <div style="width: 80px; height: 80px; background: var(--clr-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-            <i data-lucide="refresh-cw" style="width: 40px; height: 40px; color: white;"></i>
+            <i data-lucide="book-open" style="width: 40px; height: 40px; color: white;"></i>
           </div>
-          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-green);">1. Transformer</h3>
-          <p style="color: var(--clr-text-secondary); line-height: 1.8;">
-            Nou kwè nan pouvwa transfòmasyon kominote a. Chak pwogram nou konseye pou kreye chanjman direb nan lavi moun. Nou pa kontan ak sèlman soulaje pwoblèm — nou vle rezoud yo nan rasin.
+          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-green);" data-i18n="mission_pp1_title">1. Edike</h3>
+          <p style="color: var(--clr-text-secondary); line-height: 1.8;" data-i18n="mission_pp1_desc">
+            Nou fasilite aksè a edikasyon pou timoun ki nan difikilte. Nou kwè edikasyon se kle debaz pou kreye chanjman dirab nan lavi timoun yo.
           </p>
         </div>
         <div style="text-align: center; padding: 3rem; background: var(--clr-bg-warm); border-radius: 1rem;">
           <div style="width: 80px; height: 80px; background: var(--clr-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
             <i data-lucide="book-open" style="width: 40px; height: 40px; color: white;"></i>
           </div>
-          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-yellow-dark);">2. Edike</h3>
-          <p style="color: var(--clr-text-secondary); line-height: 1.8;">
-            Edikasyon se fondasyon pwogrè. Nou bay resous ak fòmasyon pou ankouraje aprann pandan tout lavi. Lè moun aprann, yo ka pran desizyon enfòme pou tèt yo ak fanmi yo.
+          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-yellow-dark);" data-i18n="mission_pp2_title">2. Sipòte</h3>
+          <p style="color: var(--clr-text-secondary); line-height: 1.8;" data-i18n="mission_pp2_desc">
+            Nou bay sipò debaz: manje, rad, ak founiti lekòl. Lè timoun gen sa yo bezwen, yo ka konsantre sou aprann.
           </p>
         </div>
         <div style="text-align: center; padding: 3rem; background: var(--clr-bg-warm); border-radius: 1rem;">
           <div style="width: 80px; height: 80px; background: var(--clr-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
             <i data-lucide="shield" style="width: 40px; height: 40px; color: white;"></i>
           </div>
-          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-red);">3. Proteje</h3>
-          <p style="color: var(--clr-text-secondary); line-height: 1.8;">
-            Nou pwoteje dwa moun ak anviwonman an. Chak aksyon nou pran konsidere byennèt kominote a ak prezèvasyon resous natirèl pou jenerasyon kap vini yo.
+          <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--clr-red);" data-i18n="mission_pp3_title">3. Pwoteje</h3>
+          <p style="color: var(--clr-text-secondary); line-height: 1.8;" data-i18n="mission_pp3_desc">
+            Nou pwoteje timoun vilnerab kont eksklizyon ak povrete. Nou ede jèn yo konstwi yon avni miyò pou tèt yo ak kominote yo.
           </p>
         </div>
       </div>
 
       <!-- Values -->
       <div style="margin-bottom: 5rem;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Valè Nou Yo</h2>
+        <h2 style="text-align: center; margin-bottom: 3rem;" data-i18n="mission_values_title">Valè Nou Yo</h2>
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
           <div style="display: flex; gap: 1.5rem; padding: 2rem; background: white; border-radius: 1rem; border: 1px solid var(--clr-border);">
             <i data-lucide="heart-handshake" style="width: 48px; height: 48px; color: var(--clr-green); flex-shrink: 0;"></i>
             <div>
-              <h4 style="margin-bottom: 0.5rem;">Solidarite</h4>
-              <p style="color: var(--clr-text-secondary);">Nou kwè nan pouvwa ansanm pou rezoud pwoblèm kominote nou yo.</p>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="val_solidarity">Solidarite</h4>
+              <p style="color: var(--clr-text-secondary);" data-i18n="val_solidarity_desc">Nou kwè nan pouvwa ansanm pou rezoud pwoblèm kominote nou yo.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; padding: 2rem; background: white; border-radius: 1rem; border: 1px solid var(--clr-border);">
             <i data-lucide="eye" style="width: 48px; height: 48px; color: var(--clr-green); flex-shrink: 0;"></i>
             <div>
-              <h4 style="margin-bottom: 0.5rem;">Transparans</h4>
-              <p style="color: var(--clr-text-secondary);">Nou angaje pou rann kont sou chak goud nou depanse ak chak aksyon nou pran.</p>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="val_transparency">Transparans</h4>
+              <p style="color: var(--clr-text-secondary);" data-i18n="val_transparency_desc">Nou angaje pou rann kont sou chak goud nou depanse ak chak aksyon nou pran.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; padding: 2rem; background: white; border-radius: 1rem; border: 1px solid var(--clr-border);">
             <i data-lucide="users" style="width: 48px; height: 48px; color: var(--clr-green); flex-shrink: 0;"></i>
             <div>
-              <h4 style="margin-bottom: 0.5rem;">Inklizyon</h4>
-              <p style="color: var(--clr-text-secondary);">Nou sèvi tout moun san distenksyon, espesyalman moun ki pi vilnerab yo.</p>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="val_inclusion">Inklizyon</h4>
+              <p style="color: var(--clr-text-secondary);" data-i18n="val_inclusion_desc">Nou sèvi tout timoun san distenksyon, espesyalman moun ki pi vilnerab yo.</p>
             </div>
           </div>
           <div style="display: flex; gap: 1.5rem; padding: 2rem; background: white; border-radius: 1rem; border: 1px solid var(--clr-border);">
             <i data-lucide="target" style="width: 48px; height: 48px; color: var(--clr-green); flex-shrink: 0;"></i>
             <div>
-              <h4 style="margin-bottom: 0.5rem;">Efikasite</h4>
-              <p style="color: var(--clr-text-secondary);">Nou maksimize enpak chak resous atravè jesyon pwofesyonèl ak inovasyon.</p>
+              <h4 style="margin-bottom: 0.5rem;" data-i18n="val_efficiency">Efikasite</h4>
+              <p style="color: var(--clr-text-secondary);" data-i18n="val_efficiency_desc">Nou maksimize enpak chak resous atravè jesyon pwofesyonèl ak inovasyon.</p>
             </div>
           </div>
         </div>
@@ -138,11 +143,11 @@
 
       <!-- History -->
       <div style="background: var(--clr-green-dark); color: white; padding: 4rem; border-radius: 1.5rem; text-align: center;">
-        <h2 style="color: white; margin-bottom: 1.5rem;">Istwa Nou</h2>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.125rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;">
-          TRAPOSA te fonde an 2014 pa yon gwoup jèn ayisyen ki te kwè nan kapasite kominote yo pou transfòme pwòp realite yo. Nan 10 ane, nou grandi soti nan yon ti ekip vòlontè rive nan yon òganizasyon nasyonal ki opere nan 10 depatman ak plis pase 500 bénévòl.
+        <h2 style="color: white; margin-bottom: 1.5rem;" data-i18n="mission_history_title">Istwa Nou</h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.125rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;" data-i18n="mission_history_desc">
+          TRAPOSA se yon òganizasyon ki angaje pou pwoteksyon timoun, edikasyon, ak lit kont povrete ann Ayiti. Pwogram nou an kòmanse ak anviwon 10,000 timoun (2022–2023) epi elaji a plis pase 10,000 benefisiè ane kap vini an. Youn nan pwojè enpòtan nou yo se restriktirasyion lekòl nasyonal Bè-de-En nan depatman Nòdwès. Objektif nou se rive jwenn plis timoun toujou nan tout peyi a.
         </p>
-        <a href="./actualites.html" class="btn btn-white">Li Plis sou Istwa Nou</a>
+        <a href="./projets.html" class="btn btn-white" data-i18n="mission_history_btn">Li Plis sou Pwogram Nou Yo</a>
       </div>
     </div>
   </section>
@@ -153,19 +158,19 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti. TRANSFORMER pour Sauver.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
           
           <div class="footer-newsletter" style="margin-top:1.5rem;">
-            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;">Abònman Bilten Nou an</h4>
+            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;" data-i18n="footer_newsletter">Abònman Bilten Nou an</h4>
             <form class="footer-newsletter-form">
-              <input type="email" placeholder="Imèl ou" required>
-              <button type="submit">Abòne</button>
+              <input type="email" data-i18n-placeholder="footer_newsletter" placeholder="Imèl ou" required>
+              <button type="submit" data-i18n="footer_subscribe">Abòne</button>
             </form>
           </div>
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Akèy</a></li>
             <li><a href="./mission.html">Misyon</a></li>
@@ -176,7 +181,7 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens, Ayiti</p>
             <p>+509 2813-4567</p>
@@ -185,19 +190,19 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
-            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="play" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>

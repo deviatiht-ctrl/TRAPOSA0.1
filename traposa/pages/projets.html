@@ -28,18 +28,24 @@
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo">
         </a>
         <ul class="navbar-nav">
-          <li><a href="../index.html" class="nav-link">Akèy</a></li>
-          <li><a href="./mission.html" class="nav-link">Misyon</a></li>
-          <li><a href="./projets.html" class="nav-link active">Projè</a></li>
-          <li><a href="./actualites.html" class="nav-link">Aktualite</a></li>
-          <li><a href="./equipe.html" class="nav-link">Ekip</a></li>
-          <li><a href="./contact.html" class="nav-link">Kontakte</a></li>
+          <li><a href="../index.html" class="nav-link" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link active" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./equipe.html" class="nav-link" data-i18n="nav_team">Ekip</a></li>
+          <li><a href="./partenaires.html" class="nav-link" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         <div class="navbar-right">
           <button class="auth-btn" onclick="location.href='./login.html'">
             <i data-lucide="user" style="width:20px;height:20px;"></i>
           </button>
-          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <a href="./don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
           <button class="menu-toggle"><span></span><span></span><span></span></button>
         </div>
       </div>
@@ -49,10 +55,10 @@
   <!-- Mobile Nav -->
   <nav class="mobile-nav">
     <div class="mobile-nav-inner">
-      <a href="../index.html" class="mobile-nav-item"><i data-lucide="home"></i><span>Akèy</span></a>
-      <a href="./projets.html" class="mobile-nav-item active"><i data-lucide="layers"></i><span>Projè</span></a>
-      <a href="./don.html" class="mobile-nav-item"><i data-lucide="heart"></i><span>Don</span></a>
-      <a href="./benevoles.html" class="mobile-nav-item"><i data-lucide="users"></i><span>Bénévòl</span></a>
+      <a href="../index.html" class="mobile-nav-item"><i data-lucide="home"></i><span data-i18n="nav_home">Akèy</span></a>
+      <a href="./projets.html" class="mobile-nav-item active"><i data-lucide="layers"></i><span data-i18n="nav_projects">Projè</span></a>
+      <a href="./don.html" class="mobile-nav-item"><i data-lucide="heart"></i><span data-i18n="nav_donate">Don</span></a>
+      <a href="./benevoles.html" class="mobile-nav-item"><i data-lucide="users"></i><span data-i18n="volunteer_eyebrow">Bénévòl</span></a>
       <a href="./dashboard.html" class="mobile-nav-item"><i data-lucide="user"></i><span>Pwofil</span></a>
     </div>
   </nav>
@@ -60,8 +66,8 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <h1>Nou Projè Yo</h1>
-      <p>Dekouvri kijan nou ap transfòme kominote nan tout peyi a atravè pwogram dirab nou yo.</p>
+      <h1 data-i18n="projects_page_title">Projè Nou Yo</h1>
+      <p data-i18n="projects_subtitle">Dekouvri kijan nou ap ede timoun vilnerab nan tout peyi a atravè pwogram nou yo.</p>
     </div>
   </header>
 
@@ -70,18 +76,18 @@
     <div class="container">
       <!-- Toolbar -->
       <div class="projects-toolbar">
-        <div class="projects-count" id="projectsCount">Chajman projè yo...</div>
+        <div class="projects-count" id="projectsCount" data-i18n="projects_loading">Chajman projè yo...</div>
         <div style="display: flex; gap: 1rem; align-items: center;">
           <div class="admin-search">
             <i data-lucide="search"></i>
             <input type="text" class="projects-search" placeholder="Chache projè...">
           </div>
           <div class="projects-sort">
-            <label>Triye:</label>
+            <label data-i18n="projects_sort">Triye:</label>
             <select class="filter-select">
-              <option value="newest">Pi resan</option>
-              <option value="goal-high">Pi gwo objektif</option>
-              <option value="goal-low">Pi piti objektif</option>
+              <option value="newest" data-i18n="sort_newest">Pi resan</option>
+              <option value="goal-high" data-i18n="sort_goal_high">Pi gwo objektif</option>
+              <option value="goal-low" data-i18n="sort_goal_low">Pi piti objektif</option>
             </select>
           </div>
         </div>
@@ -89,18 +95,18 @@
 
       <!-- Filters -->
       <div class="projects-filter">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="Edikasyon">Edikasyon</button>
-        <button class="filter-btn" data-filter="Sante">Sante</button>
-        <button class="filter-btn" data-filter="Agrikilti">Agrikilti</button>
-        <button class="filter-btn" data-filter="Anviwonman">Anviwonman</button>
-        <button class="filter-btn" data-filter="Ijans">Ijans</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
+        <button class="filter-btn" data-filter="Edikasyon" data-i18n="filter_education">Edikasyon</button>
+        <button class="filter-btn" data-filter="Sante" data-i18n="filter_sante">Sante</button>
+        <button class="filter-btn" data-filter="Agrikilti" data-i18n="filter_agri">Agrikilti</button>
+        <button class="filter-btn" data-filter="Anviwonman" data-i18n="filter_env">Anviwonman</button>
+        <button class="filter-btn" data-filter="Ijans" data-i18n="filter_ijans">Ijans</button>
       </div>
 
       <!-- Projects Grid -->
       <div class="projects-grid" id="projectsGrid">
         <!-- Projects loaded dynamically from Supabase -->
-        <div class="loading-state">Chajman projè yo...</div>
+        <div class="loading-state" data-i18n="projects_loading">Chajman projè yo...</div>
       </div>
     </div>
   </section>
@@ -111,10 +117,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" style="height: 60px; margin-bottom: 1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Akèy</a></li>
             <li><a href="./projets.html">Projè</a></li>
@@ -123,7 +129,7 @@
           </ul>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens</p>
             <p>info@traposa.ht</p>
@@ -131,18 +137,18 @@
           </div>
         </div>
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="twitter" style="width:20px;height:20px;"></i></a>
-            <a href="#"><i data-lucide="youtube" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+            <a href="#"><i data-lucide="play" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>

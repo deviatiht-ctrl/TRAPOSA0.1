@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/auth.css">
@@ -121,28 +122,65 @@
     // Form submissions
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      const { error } = await auth.signIn(formData.get('email'), formData.get('password'));
-      if (error) {
-        document.getElementById('loginError').textContent = error.message;
-        document.getElementById('loginError').classList.add('show');
-      } else {
-        window.location.href = './dashboard.html';
+      const btn = e.target.querySelector('button[type="submit"]');
+      const errorEl = document.getElementById('loginError');
+      errorEl.classList.remove('show');
+      btn.textContent = 'Chajman...';
+      btn.disabled = true;
+
+      try {
+        if (!window.supabase) throw new Error('Supabase pa initialize. Recharge paj la.');
+        const { error } = await auth.signIn(
+          e.target.querySelector('[name="email"]').value,
+          e.target.querySelector('[name="password"]').value
+        );
+        if (error) {
+          errorEl.textContent = error.message;
+          errorEl.classList.add('show');
+        } else {
+          btn.textContent = 'Koneksyon reyisi ✓';
+          setTimeout(() => { window.location.href = './dashboard.html'; }, 800);
+          return;
+        }
+      } catch (err) {
+        errorEl.textContent = err.message || 'Erè koneksyon. Eseye ankò.';
+        errorEl.classList.add('show');
       }
+
+      btn.textContent = 'Konekte';
+      btn.disabled = false;
     });
 
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      const { error } = await auth.signUp(formData.get('email'), formData.get('password'), {
-        full_name: formData.get('full_name')
-      });
-      if (error) {
-        document.getElementById('registerError').textContent = error.message;
-        document.getElementById('registerError').classList.add('show');
-      } else {
-        window.location.href = './dashboard.html';
+      const btn = e.target.querySelector('button[type="submit"]');
+      const errorEl = document.getElementById('registerError');
+      errorEl.classList.remove('show');
+      btn.textContent = 'Chajman...';
+      btn.disabled = true;
+
+      try {
+        if (!window.supabase) throw new Error('Supabase pa initialize. Recharge paj la.');
+        const { error } = await auth.signUp(
+          e.target.querySelector('[name="email"]').value,
+          e.target.querySelector('[name="password"]').value,
+          { full_name: e.target.querySelector('[name="full_name"]').value }
+        );
+        if (error) {
+          errorEl.textContent = error.message;
+          errorEl.classList.add('show');
+        } else {
+          btn.textContent = 'Kont kreye ✓';
+          setTimeout(() => { window.location.href = './dashboard.html'; }, 800);
+          return;
+        }
+      } catch (err) {
+        errorEl.textContent = err.message || 'Erè enskripsyon. Eseye ankò.';
+        errorEl.classList.add('show');
       }
+
+      btn.textContent = 'Kreye Kont';
+      btn.disabled = false;
     });
   </script>
 </body>

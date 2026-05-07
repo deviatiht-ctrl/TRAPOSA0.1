@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRAPOSA — TRANSFORMER pour Sauver</title>
-  <meta name="description" content="TRAPOSA se yon òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti.">
+  <title>TRAPOSA — Transformons pour Sauver</title>
+  <meta name="description" content="TRAPOSA se yon òganizasyon sosyal ki aktif ann Ayiti pou ede timoun vilnerab grasa edikasyon ak asistans sosyal.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,13 +39,13 @@
         </a>
         
         <ul class="navbar-nav">
-          <li><a href="./index.html" class="nav-link active">Akèy</a></li>
-          <li><a href="./pages/mission.html" class="nav-link">Misyon</a></li>
-          <li><a href="./pages/projets.html" class="nav-link">Projè</a></li>
-          <li><a href="./pages/actualites.html" class="nav-link">Aktualite</a></li>
-          <li><a href="./pages/equipe.html" class="nav-link">Ekip</a></li>
-          <li><a href="./pages/partenaires.html" class="nav-link">Partenè</a></li>
-          <li><a href="./pages/contact.html" class="nav-link">Kontakte</a></li>
+          <li><a href="./index.html" class="nav-link active" data-i18n="nav_home">Akèy</a></li>
+          <li><a href="./pages/mission.html" class="nav-link" data-i18n="nav_mission">Misyon</a></li>
+          <li><a href="./pages/projets.html" class="nav-link" data-i18n="nav_projects">Projè</a></li>
+          <li><a href="./pages/actualites.html" class="nav-link" data-i18n="nav_news">Aktualite</a></li>
+          <li><a href="./pages/equipe.html" class="nav-link" data-i18n="nav_team">Ekip</a></li>
+          <li><a href="./pages/partenaires.html" class="nav-link" data-i18n="nav_partners">Partenè</a></li>
+          <li><a href="./pages/contact.html" class="nav-link" data-i18n="nav_contact">Kontakte</a></li>
         </ul>
         
         <div class="navbar-right">
@@ -58,7 +58,7 @@
             <i data-lucide="user" style="width:20px;height:20px;"></i>
           </button>
           <a href="./pages/admin/dashboard.html" class="admin-btn">Admin</a>
-          <a href="./pages/don.html" class="nav-cta">Fe Yon Don</a>
+          <a href="./pages/don.html" class="nav-cta" data-i18n="nav_donate">Fe Yon Don</a>
           <button class="menu-toggle" aria-label="Menu">
             <span></span>
             <span></span>
@@ -74,19 +74,19 @@
     <div class="mobile-nav-inner">
       <a href="./index.html" class="mobile-nav-item active">
         <i data-lucide="home"></i>
-        <span>Akèy</span>
+        <span data-i18n="nav_home">Akèy</span>
       </a>
       <a href="./pages/projets.html" class="mobile-nav-item">
         <i data-lucide="layers"></i>
-        <span>Projè</span>
+        <span data-i18n="nav_projects">Projè</span>
       </a>
       <a href="./pages/don.html" class="mobile-nav-item">
         <i data-lucide="heart"></i>
-        <span>Don</span>
+        <span data-i18n="nav_donate">Don</span>
       </a>
       <a href="./pages/benevoles.html" class="mobile-nav-item">
         <i data-lucide="users"></i>
-        <span>Bénévòl</span>
+        <span data-i18n="volunteer_eyebrow">Bénévòl</span>
       </a>
       <a href="./pages/dashboard.html" class="mobile-nav-item">
         <i data-lucide="user"></i>
@@ -100,38 +100,38 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <span class="hero-eyebrow">TRAPOSA — Òganizasyon Sosyal Ayisyen</span>
-          <h1 class="hero-title">
-            <span class="highlight-green">TRANSFORMER</span> pour Sauver
+          <span class="hero-eyebrow" data-i18n="hero_eyebrow">TRAPOSA — Òganizasyon Sosyal Ayisyen</span>
+          <h1 class="hero-title" data-i18n-html="hero_title_html">
+            <span class="highlight-green">TRANSFORMONS</span> pour Sauver
           </h1>
-          <p class="hero-description">
-            TRAPOSA se yon òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti. Ann ansanm pou nou bati yon demen miyò.
+          <p class="hero-description" data-i18n="hero_desc">
+            TRAPOSA se yon òganizasyon sosyal ki aktif ann Ayiti. Misyon prensipal li se ede timoun vilnerab yo amelyore kondisyon lavi yo, espesyalman nan edikasyon ak asistans sosyal.
           </p>
           <div class="hero-actions">
             <a href="./pages/projets.html" class="btn btn-primary btn-lg">
               <i data-lucide="eye" style="width:18px;height:18px;"></i>
-              Wè Nou Projè Yo
+              <span data-i18n="hero_btn_projects">Wè Projè Nou Yo</span>
             </a>
-            <a href="./pages/don.html" class="btn btn-outline btn-lg">
+            <a href="./pages/don.html" class="btn btn-outline btn-lg" data-i18n="hero_btn_donate">
               Fe Yon Don
             </a>
           </div>
           <div class="hero-stats">
             <div class="hero-stat">
-              <div class="hero-stat-number" data-stat="beneficiaires">12,450</div>
-              <div class="hero-stat-label">Benefisiè</div>
+              <div class="hero-stat-number" data-stat="beneficiaires">10,000+</div>
+              <div class="hero-stat-label" data-i18n="hero_stat_beneficiaires">Benefisiè</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-number" data-stat="projets">48</div>
-              <div class="hero-stat-label">Projè Aktif</div>
+              <div class="hero-stat-number" data-stat="projets">3</div>
+              <div class="hero-stat-label" data-i18n="hero_stat_projets">Projè Aktif</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-number" data-stat="benevoles">500+</div>
-              <div class="hero-stat-label">Bénévòl</div>
+              <div class="hero-stat-number" data-stat="benevoles">50+</div>
+              <div class="hero-stat-label" data-i18n="hero_stat_benevoles">Bénévòl</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-number" data-stat="departements">10</div>
-              <div class="hero-stat-label">Depatman</div>
+              <div class="hero-stat-number" data-stat="departements">3</div>
+              <div class="hero-stat-label" data-i18n="hero_stat_depatman">Depatman</div>
             </div>
           </div>
         </div>
@@ -159,30 +159,30 @@
   <section class="mission-section section-dark">
     <div class="container">
       <div class="section-header">
-        <h2>Missyon Nou</h2>
-        <p> twa pilye fondamantal ki gide tout aksyon nou yo</p>
+        <h2 data-i18n="mission_title">Misyon Nou</h2>
+        <p data-i18n="mission_subtitle">Twa pilye fondamantal ki gide tout aksyon nou yo pou yon Ayiti miyò</p>
       </div>
       <div class="mission-pillars">
         <div class="mission-pillar">
           <div class="mission-pillar-icon">
-            <i data-lucide="refresh-cw" style="width:32px;height:32px;"></i>
-          </div>
-          <h3>Transformer</h3>
-          <p>Nou kwè nan pouvwa transfòmasyon kominote a. Chak pwogram nou konseye pou kreye chanjman direb nan lavi moun.</p>
-        </div>
-        <div class="mission-pillar">
-          <div class="mission-pillar-icon">
             <i data-lucide="book-open" style="width:32px;height:32px;"></i>
           </div>
-          <h3>Edike</h3>
-          <p>Edikasyon se fondasyon pwogrè. Nou bay resous ak fòmasyon pou ankouraje aprann pandan tout lavi.</p>
+          <h3 data-i18n="mission_p1_title">Edike</h3>
+          <p data-i18n="mission_p1_desc">Nou fasilite aksè a edikasyon pou timoun ki nan difikilte. Edikasyon se kle pou soti nan povrete epi konstwi yon demen miyò.</p>
         </div>
         <div class="mission-pillar">
           <div class="mission-pillar-icon">
-            <i data-lucide="shield" style="width:32px;height:32px;"></i>
+            <i data-lucide="heart" style="width:32px;height:32px;"></i>
           </div>
-          <h3>Proteje</h3>
-          <p>Nou pwoteje dwa moun ak anviwonman an. Chak aksyon nou pran konsidere byennèt kominote a.</p>
+          <h3 data-i18n="mission_p2_title">Sipòte</h3>
+          <p data-i18n="mission_p2_desc">Nou founi sipò debaz pou timoun vilnerab: manje, rad, ak founiti lekòl ki nesesè pou yo ka aprann.</p>
+        </div>
+        <div class="mission-pillar">
+          <div class="mission-pillar-icon">
+            <i data-lucide="shield-check" style="width:32px;height:32px;"></i>
+          </div>
+          <h3 data-i18n="mission_p3_title">Pwoteje</h3>
+          <p data-i18n="mission_p3_desc">Nou pwoteje timoun kont povrete ak eksklizyon. Nou ede jèn yo soti nan sèk povrete a epi konstwi yon demen miyò.</p>
         </div>
       </div>
     </div>
@@ -192,84 +192,84 @@
   <section class="projects-section section">
     <div class="container">
       <div class="section-header">
-        <h2>Projè Aktif</h2>
-        <p>Dekouvri kijan nou ap transfòme kominote nan tout peyi a</p>
+        <h2 data-i18n="projects_title">Projè Aktif</h2>
+        <p data-i18n="projects_subtitle">Dekouvri kijan nou ap ede timoun vilnerab nan tout peyi a</p>
       </div>
       
       <div class="projects-filter">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="Edikasyon">Edikasyon</button>
-        <button class="filter-btn" data-filter="Sante">Sante</button>
-        <button class="filter-btn" data-filter="Agrikilti">Agrikilti</button>
-        <button class="filter-btn" data-filter="Anviwonman">Anviwonman</button>
-        <button class="filter-btn" data-filter="Ijans">Ijans</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
+        <button class="filter-btn" data-filter="Edikasyon" data-i18n="filter_education">Edikasyon</button>
+        <button class="filter-btn" data-filter="Sante" data-i18n="filter_sante">Sante</button>
+        <button class="filter-btn" data-filter="Agrikilti" data-i18n="filter_agri">Agrikilti</button>
+        <button class="filter-btn" data-filter="Anviwonman" data-i18n="filter_env">Anviwonman</button>
+        <button class="filter-btn" data-filter="Ijans" data-i18n="filter_ijans">Ijans</button>
       </div>
       
       <div class="projects-grid">
         <article class="project-card featured" data-category="Edikasyon">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop" alt="Lekòl Pou Tout">
-            <span class="badge badge-green">Edikasyon</span>
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop" alt="Lekòl Nasyonal Bè-de-En">
+            <span class="badge badge-green" data-i18n="filter_education">Edikasyon</span>
           </div>
           <div class="project-body">
-            <h3 class="project-title">Lekòl Pou Tout — Depatman Nò</h3>
+            <h3 class="project-title" data-i18n="proj1_title">Restriktirasyion Lekòl Nasyonal Bè-de-En</h3>
             <div class="project-location">
               <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
-              Cap-Haïtien, Nò
+              <span data-i18n="proj1_loc">Bè-de-En, Nòdwès</span>
             </div>
             <div class="project-progress">
               <div class="progress-info">
-                <span class="raised">G67,000</span>
-                <span class="goal">sou G150,000</span>
+                <span class="raised" data-i18n="proj1_raised">G700,000</span>
+                <span class="goal" data-i18n="proj1_goal">sou G1,000,000</span>
               </div>
               <div class="progress-bar">
-                <div class="progress-fill" style="width: 45%"></div>
+                <div class="progress-fill" style="width: 70%"></div>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="project-card featured" data-category="Agrikilti">
+        <article class="project-card featured" data-category="Edikasyon">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop" alt="Jaden Kominote">
-            <span class="badge badge-green">Agrikilti</span>
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop" alt="Sipò Timoun Vilnerab">
+            <span class="badge badge-green" data-i18n="filter_education">Edikasyon</span>
           </div>
           <div class="project-body">
-            <h3 class="project-title">Jaden Kominote — Latibonit</h3>
+            <h3 class="project-title" data-i18n="proj2_title">Sipò Timoun Vilnerab — Nòdwès</h3>
             <div class="project-location">
               <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
-              Gonaïves, Latibonit
+              <span data-i18n="proj2_loc">Depatman Nòdwès</span>
             </div>
             <div class="project-progress">
               <div class="progress-info">
-                <span class="raised">G34,000</span>
-                <span class="goal">sou G80,000</span>
+                <span class="raised" data-i18n="proj2_raised">G180,000</span>
+                <span class="goal" data-i18n="proj2_goal">sou G300,000</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card featured" data-category="Edikasyon">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop" alt="Pwogram Edikasyon Pou Tout">
+            <span class="badge badge-green" data-i18n="filter_education">Edikasyon</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="proj3_title">Pwogram Edikasyon Pou Tout</h3>
+            <div class="project-location">
+              <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
+              <span data-i18n="proj3_loc">Plizyè Depatman, Ayiti</span>
+            </div>
+            <div class="project-progress">
+              <div class="progress-info">
+                <span class="raised" data-i18n="proj3_raised">G85,000</span>
+                <span class="goal" data-i18n="proj3_goal">sou G200,000</span>
               </div>
               <div class="progress-bar">
                 <div class="progress-fill" style="width: 42%"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card featured" data-category="Sante">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="Klinik Mobil">
-            <span class="badge badge-green">Sante</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Klinik Mobil — Sid</h3>
-            <div class="project-location">
-              <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
-              Les Cayes, Sid
-            </div>
-            <div class="project-progress">
-              <div class="progress-info">
-                <span class="raised">G156,000</span>
-                <span class="goal">sou G200,000</span>
-              </div>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 78%"></div>
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@
       
       <div style="text-align: center; margin-top: 3rem;">
         <a href="./pages/projets.html" class="btn btn-outline btn-lg">
-          Tout Projè 
+          <span data-i18n="projects_btn_all">Tout Projè</span>
           <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
         </a>
       </div>
@@ -289,37 +289,37 @@
   <section class="impact-section section">
     <div class="container">
       <div class="section-header">
-        <h2>Enpak Nou</h2>
-        <p>Chif ki pale pou tèt yo — rezilta aksyon kolèktif nou yo</p>
+        <h2 data-i18n="impact_title">Enpak Nou</h2>
+        <p data-i18n="impact_subtitle">Chif ki pale pou tèt yo — rezilta aksyon kolèktif nou yo</p>
       </div>
       <div class="impact-grid">
         <div class="impact-item">
           <div class="impact-icon">
             <i data-lucide="users" style="width:48px;height:48px;"></i>
           </div>
-          <div class="impact-number" data-stat="beneficiaires" data-target="12450" data-prefix="">12,450</div>
-          <div class="impact-label">Benefisiè Dirèk</div>
+          <div class="impact-number" data-stat="beneficiaires" data-target="10000" data-prefix="">10,000+</div>
+          <div class="impact-label" data-i18n="impact_beneficiaires">Benefisiè Dirèk</div>
         </div>
         <div class="impact-item">
           <div class="impact-icon">
             <i data-lucide="folder" style="width:48px;height:48px;"></i>
           </div>
-          <div class="impact-number" data-stat="projets" data-target="48" data-prefix="">48</div>
-          <div class="impact-label">Projè Aktif</div>
+          <div class="impact-number" data-stat="projets" data-target="3" data-prefix="">3</div>
+          <div class="impact-label" data-i18n="impact_projets">Projè Aktif</div>
         </div>
         <div class="impact-item">
           <div class="impact-icon">
             <i data-lucide="calendar" style="width:48px;height:48px;"></i>
           </div>
-          <div class="impact-number" data-stat="experience" data-target="10" data-prefix="">10</div>
-          <div class="impact-label">Zan Eskperyans</div>
+          <div class="impact-number" data-stat="experience" data-target="3" data-prefix="">3</div>
+          <div class="impact-label" data-i18n="impact_years">Zan Travay</div>
         </div>
         <div class="impact-item">
           <div class="impact-icon">
             <i data-lucide="map" style="width:48px;height:48px;"></i>
           </div>
-          <div class="impact-number" data-stat="komin" data-target="23" data-prefix="">23</div>
-          <div class="impact-label">Komin Travay</div>
+          <div class="impact-number" data-stat="komin" data-target="5" data-prefix="">5</div>
+          <div class="impact-label" data-i18n="impact_communes">Komin Enplike</div>
         </div>
       </div>
     </div>
@@ -329,55 +329,55 @@
   <section class="news-section section">
     <div class="container">
       <div class="section-header">
-        <h2>Aktualite Recant</h2>
-        <p>Rete enfòme sou dènye nouvèl ak rezilta nou yo</p>
+        <h2 data-i18n="news_title">Aktualite Resan</h2>
+        <p data-i18n="news_subtitle">Rete enfòme sou dènye nouvèl ak rezilta nou yo</p>
       </div>
       <div class="news-grid">
         <article class="news-card">
           <div class="news-image">
-            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&h=400&fit=crop" alt="TRAPOSA manje timoun">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop" alt="Lekòl Nasyonal Bè-de-En">
           </div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="badge badge-green sikse">Siksè</span>
-              <span class="news-date">2 jou pase</span>
+              <span class="badge badge-green" data-i18n="news1_badge">Siksè</span>
+              <span class="news-date" data-i18n="news1_date">2 jou pase</span>
             </div>
-            <h3 class="news-title">TRAPOSA rive bay 1000 timoun manje chak jou nan Pòtoprens</h3>
-            <p class="news-excerpt">Gras ak sipò partenè nou yo, TRAPOSA rive bay 1000 timoun manje chak jou nan 5 kominote Pòtoprens.</p>
+            <h3 class="news-title" data-i18n="news1_title">Lekòl nasyonal Bè-de-En restriktire grasa TRAPOSA</h3>
+            <p class="news-excerpt" data-i18n="news1_excerpt">TRAPOSA reyisi restriktire lekòl nasyonal Bè-de-En nan depatman Nòdwès, ki bay plis timoun aksè a edikasyon.</p>
           </div>
         </article>
 
         <article class="news-card">
           <div class="news-image">
-            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=400&fit=crop" alt="Inondasyon Sid">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop" alt="10000 timoun">
           </div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="badge badge-red ijan">Ijans</span>
-              <span class="news-date">5 jou pase</span>
+              <span class="badge badge-green" data-i18n="news2_badge">Pwogram</span>
+              <span class="news-date" data-i18n="news2_date">1 semèn pase</span>
             </div>
-            <h3 class="news-title">Ijans: TRAPOSA repon a inondasyon nan Depatman Sid la</h3>
-            <p class="news-excerpt">Ekip TRAPOSA yo deplwaye nan Depatman Sid la pou ede fanmi yo ki pèdi kay yo akoz inondasyon.</p>
+            <h3 class="news-title" data-i18n="news2_title">Plis pase 10,000 timoun benefisye pwogram TRAPOSA an</h3>
+            <p class="news-excerpt" data-i18n="news2_excerpt">Depi 2022-2023, TRAPOSA rive ede plis pase 10,000 timoun vilnerab nan plizyè depatman Ayiti.</p>
           </div>
         </article>
 
         <article class="news-card">
           <div class="news-image">
-            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Partenariat UNESCO">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Djina Guillet Delatour">
           </div>
           <div class="news-body">
             <div class="news-meta">
-              <span class="badge badge-green">Partenariat</span>
-              <span class="news-date">10 jou pase</span>
+              <span class="badge badge-green" data-i18n="news3_badge">Don</span>
+              <span class="news-date" data-i18n="news3_date">2 semèn pase</span>
             </div>
-            <h3 class="news-title">Nouvo partenariat ak UNESCO pou edikasyon an Ayiti</h3>
-            <p class="news-excerpt">TRAPOSA ak UNESCO siyen yon akò kolaborasyon pou amelyore kalite edikasyon nan 20 lekòl.</p>
+            <h3 class="news-title" data-i18n="news3_title">Djina Guillet Delatour apiye TRAPOSA ak don espesyal</h3>
+            <p class="news-excerpt" data-i18n="news3_excerpt">Otè Djina Guillet Delatour voye yon pati nan resèt liv li bay TRAPOSA pou soutni timoun ki nan bezwen.</p>
           </div>
         </article>
       </div>
       <div style="text-align: center; margin-top: 3rem;">
         <a href="./pages/actualites.html" class="btn btn-outline btn-lg">
-          Tout Aktualite
+          <span data-i18n="news_btn_all">Tout Aktualite</span>
           <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
         </a>
       </div>
@@ -387,23 +387,23 @@
   <!-- Section 6: Donation CTA (Red Urgency) -->
   <section class="donate-cta-section">
     <div class="container">
-      <h2>Yon Ayisyen nan Bezwen. Ou Ka Ede.</h2>
-      <p>Chak don kontribye pou bay espwa ak chanje lavi nan kominote nou yo.</p>
+      <h2 data-i18n="donate_cta_title">Yon Timoun nan Bezwen. Ou Ka Ede.</h2>
+      <p data-i18n="donate_cta_desc">Chak don kontribye pou bay espwa ak chanje lavi timoun vilnerab yo nan Ayiti.</p>
       
       <div class="quick-donate">
         <button class="quick-donate-btn" onclick="quickDonate(500)">G500</button>
         <button class="quick-donate-btn" onclick="quickDonate(1000)">G1,000</button>
         <button class="quick-donate-btn" onclick="quickDonate(5000)">G5,000</button>
-        <button class="quick-donate-btn" onclick="quickDonate('custom')">Lòt</button>
+        <button class="quick-donate-btn" onclick="quickDonate('custom')" data-i18n="filter_all">Lòt</button>
       </div>
       
       <a href="./pages/don.html" class="btn btn-white btn-lg">
-        Fe Yon Don Kounye a
+        <span data-i18n="donate_cta_btn">Fe Yon Don Kounye a</span>
       </a>
       
       <div class="donate-trust">
         <i data-lucide="lock" style="width:16px;height:16px;"></i>
-        <span>Pèman Sekirè | Pwoteksyon Done | Rekib 100%</span>
+        <span data-i18n="donate_security">Pèman Sekirè | Pwoteksyon Done | Rekib 100%</span>
       </div>
     </div>
   </section>
@@ -412,32 +412,23 @@
   <section class="partners-section">
     <div class="container">
       <div class="section-header">
-        <h2>Partenè Nou Yo</h2>
-        <p>Nou kolabore ak òganizasyon ki pataje vizyon nou pou yon Ayiti miyò</p>
+        <h2 data-i18n="partners_title">Partenè Nou Yo</h2>
+        <p data-i18n="partners_subtitle">Nou kolabore ak òganizasyon ki pataje vizyon nou pou yon Ayiti miyò</p>
       </div>
       <div class="partners-carousel">
         <div class="partner-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/UNICEF_Logo.png/640px-UNICEF_Logo.png" alt="UNICEF" loading="lazy">
+          <span style="font-weight:700;color:#333;font-size:1rem;" data-i18n="p1_name">Djina Guillet Delatour</span>
         </div>
         <div class="partner-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/UNESCO_logo.svg/1200px-UNESCO_logo.svg.png" alt="UNESCO" loading="lazy">
+          <span style="font-weight:600;color:#666;" data-i18n="p2_name">Kominote Bè-de-En</span>
         </div>
         <div class="partner-logo">
-          <span style="font-weight:600;color:#666;">Fondasyon Ayiti Demen</span>
-        </div>
-        <div class="partner-logo">
-          <span style="font-weight:600;color:#666;">Digicel Fondasyon</span>
-        </div>
-        <div class="partner-logo">
-          <span style="font-weight:600;color:#666;">USAID Ayiti</span>
-        </div>
-        <div class="partner-logo">
-          <span style="font-weight:600;color:#666;">Pwogram Mondyal Manje</span>
+          <span style="font-weight:600;color:#666;" data-i18n="p3_name">Inisyativ Solidè</span>
         </div>
       </div>
       <div style="text-align: center; margin-top: 2rem;">
         <a href="./pages/partenaires.html" class="btn btn-outline">
-          Vin Partenè Nou
+          <span data-i18n="partners_btn">Vin Partenè Nou</span>
           <i data-lucide="handshake" style="width:18px;height:18px;"></i>
         </a>
       </div>
@@ -449,41 +440,41 @@
     <div class="container">
       <div class="volunteer-grid">
         <div class="volunteer-content">
-          <span class="eyebrow">Vin Bénévòl</span>
-          <h2>Mete Konpetans Ou nan Sèvis Kominote a</h2>
-          <p>Rejwenn yon ekip pasyone ki dedye pou transfòme lavi moun nan Ayiti. Chak talan gen valè — ann ansanm kreye chanjman.</p>
+          <span class="eyebrow" data-i18n="volunteer_eyebrow">Vin Bénévòl</span>
+          <h2 data-i18n="volunteer_title">Mete Konpetans Ou nan Sèvis Timoun Yo</h2>
+          <p data-i18n="volunteer_desc">Rejwenn yon ekip pasyone ki dedye pou ede timoun vilnerab nan Ayiti. Chak talan gen valè — ann ansanm kreye chanjman.</p>
           <ul class="volunteer-benefits">
             <li>
               <i data-lucide="check-circle" style="width:20px;height:20px;"></i>
-              Fòmasyon pwofesyonèl gratis
+              <span data-i18n="vol_b1">Fòmasyon pwofesyonèl gratis</span>
             </li>
             <li>
               <i data-lucide="check-circle" style="width:20px;height:20px;"></i>
-              Rezo entènasyonal nan sektè imanitè a
+              <span data-i18n="vol_b2">Rezo entènasyonal nan sektè imanitè a</span>
             </li>
             <li>
               <i data-lucide="check-circle" style="width:20px;height:20px;"></i>
-              Sètifika rekonesans
+              <span data-i18n="vol_b3">Sètifika rekonesans</span>
             </li>
             <li>
               <i data-lucide="check-circle" style="width:20px;height:20px;"></i>
-              Ekperyans ki chanje lavi
+              <span data-i18n="vol_b4">Eksperyans ki chanje lavi</span>
             </li>
           </ul>
         </div>
         <div class="volunteer-form">
-          <h3>Enskri Kounye a</h3>
+          <h3 data-i18n="vol_form_title">Enskri Kounye a</h3>
           <form>
             <div class="form-group">
-              <label class="form-label">Non Konplè *</label>
+              <label class="form-label" data-i18n="vol_name">Non Konplè *</label>
               <input type="text" class="form-input" name="name" required placeholder="Antre non ou">
             </div>
             <div class="form-group">
-              <label class="form-label">Imèl *</label>
+              <label class="form-label" data-i18n="vol_email">Imèl *</label>
               <input type="email" class="form-input" name="email" required placeholder="imel@egzanp.com">
             </div>
             <div class="form-group">
-              <label class="form-label">Konpetans</label>
+              <label class="form-label" data-i18n="vol_skills">Konpetans</label>
               <select class="form-select" name="skills">
                 <option value="">Chwazi konpetans ou</option>
                 <option value="enseignement">Anseyman</option>
@@ -494,7 +485,7 @@
                 <option value="autre">Lòt</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;">
+            <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="vol_submit">
               Soumèt Demann lan
             </button>
           </form>
@@ -509,19 +500,19 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="./assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="footer-logo" style="height:65px; margin-bottom:1rem;">
-          <p>Òganizasyon sosyal ayisyen ki angaje pou transfòme lavi moun nan tout kominote Ayiti. TRANSFORMER pour Sauver.</p>
+          <p data-i18n="footer_desc">Òganizasyon sosyal ayisyen ki angaje pou ede timoun vilnerab nan Ayiti grasa edikasyon ak asistans sosyal.</p>
           
           <div class="footer-newsletter" style="margin-top:1.5rem;">
-            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;">Abònman Bilten Nou an</h4>
+            <h4 style="color:white;font-size:0.875rem;margin-bottom:0.75rem;" data-i18n="footer_newsletter">Abònman Bilten Nou an</h4>
             <form class="footer-newsletter-form">
-              <input type="email" placeholder="Imèl ou" required>
-              <button type="submit">Abòne</button>
+              <input type="email" data-i18n-placeholder="footer_newsletter" placeholder="Imèl ou" required>
+              <button type="submit" data-i18n="footer_subscribe">Abòne</button>
             </form>
           </div>
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Lyen Rapid</h4>
+          <h4 class="footer-title" data-i18n="footer_quick_links">Lyen Rapid</h4>
           <ul class="footer-links">
             <li><a href="./index.html">Akèy</a></li>
             <li><a href="./pages/mission.html">Misyon</a></li>
@@ -532,7 +523,7 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Kontakte</h4>
+          <h4 class="footer-title" data-i18n="footer_contact_title">Kontakte</h4>
           <div class="footer-contact">
             <p>Rue Capois, Pòtoprens, Ayiti</p>
             <p>+509 2813-4567</p>
@@ -541,27 +532,19 @@
         </div>
         
         <div class="footer-links-section">
-          <h4 class="footer-title">Rezo Sosyal</h4>
+          <h4 class="footer-title" data-i18n="footer_social_title">Rezo Sosyal</h4>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook">
-              <i data-lucide="facebook" style="width:20px;height:20px;"></i>
-            </a>
-            <a href="#" aria-label="Instagram">
-              <i data-lucide="instagram" style="width:20px;height:20px;"></i>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <i data-lucide="twitter" style="width:20px;height:20px;"></i>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <i data-lucide="youtube" style="width:20px;height:20px;"></i>
-            </a>
+            <a href="#" aria-label="Facebook"><i data-lucide="share-2" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="image" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="play" style="width:20px;height:20px;"></i></a>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 TRAPOSA. Tout dwa rezève.</p>
-        <p class="footer-tagline">🇭🇹 Fèt pou Ayiti</p>
+        <p class="footer-copyright" data-i18n="footer_copyright">© 2025 TRAPOSA. Tout dwa rezève.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">🇭🇹 Fèt pou Ayiti</p>
       </div>
     </div>
   </footer>
