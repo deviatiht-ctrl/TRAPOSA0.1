@@ -22,7 +22,7 @@ CREATE TABLE traposa_settings (
   bank_name text,
   bank_account text,
   bank_owner text,
-  mission_pilier1_title text DEFAULT 'Transformer',
+  mission_pilier1_title text DEFAULT 'Edike',
   mission_pilier1_desc text,
   mission_pilier2_title text DEFAULT 'Edike',
   mission_pilier2_desc text,

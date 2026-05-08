@@ -247,16 +247,12 @@
   .navbar-pill {
     padding: var(--space-2) var(--space-4);
   }
-  
+
   .navbar-title {
     font-size: var(--text-lg);
   }
-  
+
   .navbar-logo {
     height: 32px;
-  }
-  
-  .lang-switcher {
-    display: none;
   }
 }
