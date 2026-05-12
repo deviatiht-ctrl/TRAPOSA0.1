@@ -42,34 +42,15 @@
             <th>Aksyon</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>Dr. Claire Beaumont</strong></td>
-            <td>Direktris Egzekitif</td>
-            <td>Direksyon</td>
-            <td>claire@traposa.ht</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Jean-Michel Toussaint</strong></td>
-            <td>Direktè Pwogram</td>
-            <td>Pwogram</td>
-            <td>jmt@traposa.ht</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
+        <tbody id="equipeTable">
+          <tr><td colspan="6" style="text-align:center;padding:2rem;">Chajman ekip...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
   <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/equipe.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri - TRAPOSA Admin</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <link rel="stylesheet" href="../../assets/css/adminstylegalerie.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <img src="../../assets/img/TRAPOSALOGO.png" alt="TRAPOSA">
+      </div>
+      <nav>
+        <ul class="admin-nav">
+          <li><a href="./dashboard.html" class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
+          <li><a href="./projets.html" class="admin-nav-link"><i data-lucide="folder"></i>Projè</a></li>
+          <li><a href="./actualites.html" class="admin-nav-link"><i data-lucide="file-text"></i>Aktualite</a></li>
+          <li><a href="./galerie.html" class="admin-nav-link active"><i data-lucide="image"></i>Galeri</a></li>
+          <li><a href="./dons.html" class="admin-nav-link"><i data-lucide="heart"></i>Don</a></li>
+          <li><a href="./equipe.html" class="admin-nav-link"><i data-lucide="users"></i>Ekip</a></li>
+          <li><a href="./parametres.html" class="admin-nav-link"><i data-lucide="settings"></i>Paramèt</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="admin-header-left">
+          <h1>Galeri Foto</h1>
+          <p>Jere foto yo ki parèt nan galeri TRAPOSA</p>
+        </div>
+        <div class="admin-header-right">
+          <a href="../../index.html" class="btn btn-outline">
+            <i data-lucide="home"></i>
+            <span>Retounen nan Sit</span>
+          </a>
+          <button class="btn btn-primary" onclick="openModal()">
+            <i data-lucide="plus"></i>
+            <span>Ajoute Foto</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Gallery Grid -->
+      <div class="admin-content">
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Photos will be loaded here -->
+        </div>
+        
+        <div id="emptyState" class="empty-state" style="display: none; padding: var(--space-16);">
+          <i data-lucide="image" style="width: 64px; height: 64px; color: var(--clr-text-muted);"></i>
+          <h3>Pokenn foto</h3>
+          <p>Klike sou "Ajoute Foto" pou kòmanse</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Add Photo -->
+  <div class="admin-modal" id="photoModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Ajoute Foto</h2>
+        <button class="modal-close" onclick="closeModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form class="modal-form" id="photoForm" onsubmit="savePhoto(event)">
+        <div class="form-group">
+          <label>Chwazi Foto</label>
+          <input type="file" id="photoFile" accept="image/*" required onchange="previewImage(this)">
+          <div class="image-preview" id="imagePreview">
+            <span style="color: var(--clr-text-muted);">Previzyon foto a</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Non Foto (opsyonèl)</label>
+          <input type="text" id="photoName" placeholder="Ekri yon non si ou vle">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">Anile</button>
+          <button type="submit" class="btn btn-primary" id="saveBtn">
+            <i data-lucide="save"></i>
+            <span>Anrejistre</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/galerie.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

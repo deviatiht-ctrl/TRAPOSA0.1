@@ -40,32 +40,15 @@
             <th>Aksyon</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>UNICEF Ayiti</strong></td>
-            <td>Entènasyonal</td>
-            <td>unicef.org/haiti</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>UNESCO</strong></td>
-            <td>Entènasyonal</td>
-            <td>unesco.org</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
+        <tbody id="partenairesTable">
+          <tr><td colspan="5" style="text-align:center;padding:2rem;">Chajman patnè...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
   <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/partenaires.js"></script>
 </body>
 </html>

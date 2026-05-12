@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri - TRAPOSA</title>
+  <meta name="description" content="Galeri foto TRAPOSA - Nou yo nan aksyon">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/mobile-nav.css">
+  <link rel="stylesheet" href="../assets/css/galerie.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-pill">
+        <a href="./index.html" class="navbar-brand">
+          <img src="../assets/img/TRAPOSALOGO.png" alt="TRAPOSA" class="navbar-logo">
+        </a>
+        
+        <ul class="navbar-nav">
+          <li><a href="../index.html" class="nav-link">Akèy</a></li>
+          <li><a href="./mission.html" class="nav-link">Misyon</a></li>
+          <li><a href="./projets.html" class="nav-link">Projè</a></li>
+          <li><a href="./actualites.html" class="nav-link">Aktualite</a></li>
+          <li><a href="./galerie.html" class="nav-link active">Galeri</a></li>
+          <li><a href="./equipe.html" class="nav-link">Ekip</a></li>
+          <li><a href="./partenaires.html" class="nav-link">Partenè</a></li>
+          <li><a href="./contact.html" class="nav-link">Kontakte</a></li>
+        </ul>
+        
+        <div class="navbar-right">
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="HT">HT</button>
+            <button class="lang-btn" data-lang="FR">FR</button>
+            <button class="lang-btn" data-lang="EN">EN</button>
+          </div>
+          <button class="auth-btn" onclick="location.href='./login.html'">
+            <i data-lucide="user" style="width:20px;height:20px;"></i>
+          </button>
+          <a href="./admin/dashboard.html" class="admin-btn">Admin</a>
+          <a href="./don.html" class="nav-cta">Fe Yon Don</a>
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-header">
+        <h1>Galeri Foto</h1>
+        <p>Nou yo nan aksyon - Moman ki fè diferans</p>
+      </div>
+      
+      <div class="gallery-grid" id="publicGallery">
+        <!-- Photos will be loaded here -->
+      </div>
+      
+      <div id="galleryEmpty" class="empty-state" style="display: none;">
+        <i data-lucide="image" style="width: 64px; height: 64px; color: var(--clr-text-muted);"></i>
+        <h3>Pokenn foto</h3>
+        <p>Galri a pral parèt isit lè nou ajoute foto</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="../index.html" class="mobile-nav-item">
+        <i data-lucide="home"></i>
+        <span>Akèy</span>
+      </a>
+      <a href="./projets.html" class="mobile-nav-item">
+        <i data-lucide="layers"></i>
+        <span>Projè</span>
+      </a>
+      <a href="./don.html" class="mobile-nav-item">
+        <i data-lucide="heart"></i>
+        <span>Don</span>
+      </a>
+      <a href="./galerie.html" class="mobile-nav-item active">
+        <i data-lucide="image"></i>
+        <span>Galeri</span>
+      </a>
+      <a href="./dashboard.html" class="mobile-nav-item">
+        <i data-lucide="user"></i>
+        <span>Pwofil</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/galerie.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

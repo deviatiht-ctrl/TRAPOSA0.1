@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initCauseSelection();
   initAmountSelection();
   initCurrencySelector();
-  initPaymentMethods();
   initDonationForm();
   loadRecentDonations();
   loadCauses();
+  loadPaymentMethods();
 });
 
 // Load causes from Supabase
@@ -129,19 +129,153 @@ function initCurrencySelector() {
   });
 }
 
-// Payment method selection
+// Load payment methods from Supabase
+async function loadPaymentMethods() {
+  try {
+    const { data, error } = await supabase
+      ?.from('traposa_payment_methods')
+      .select('*')
+      .eq('is_active', true)
+      .order('display_order', { ascending: true });
+
+    if (error) throw error;
+
+    if (data && data.length > 0) {
+      renderPaymentMethods(data);
+    } else {
+      renderDefaultPaymentMethods();
+    }
+  } catch (err) {
+    console.warn('Payment methods table not found, using defaults:', err.message);
+    renderDefaultPaymentMethods();
+  }
+}
+
+// Fallback static methods if table doesn't exist yet
+function renderDefaultPaymentMethods() {
+  renderPaymentMethods([
+    { id: 'moncash', type: 'moncash', name: 'MonCash',   icon_name: 'smartphone',  is_active: true },
+    { id: 'natcash', type: 'natcash', name: 'NatCash',   icon_name: 'wallet',      is_active: true },
+    { id: 'stripe',  type: 'stripe',  name: 'Kat Kredi', icon_name: 'credit-card', is_active: true },
+  ]);
+}
+
+// Render payment method cards dynamically
+function renderPaymentMethods(methods) {
+  const container = document.querySelector('.payment-methods');
+  if (!container) return;
+
+  window._paymentMethods = methods;
+
+  container.innerHTML = methods.map((m, idx) => `
+    <label class="payment-method ${idx === 0 ? 'selected' : ''}" data-method-id="${m.id}">
+      <input type="radio" name="payment" value="${m.type}" ${idx === 0 ? 'checked' : ''}>
+      <div class="payment-icon">
+        ${m.logo_url
+          ? `<img src="${m.logo_url}" alt="${m.name}" style="width:26px;height:26px;object-fit:contain;" onerror="this.style.display='none'">`
+          : `<i data-lucide="${m.icon_name || 'credit-card'}"></i>`
+        }
+      </div>
+      <span class="payment-label">${m.name}</span>
+    </label>
+  `).join('');
+
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+
+  // Show info for first method right away
+  if (methods.length > 0) showPaymentInfo(methods[0]);
+
+  initPaymentMethods();
+}
+
+// Re-attach click events after dynamic render
 function initPaymentMethods() {
   const paymentMethods = document.querySelectorAll('.payment-method');
-  
+
   paymentMethods.forEach(method => {
     method.addEventListener('click', () => {
       paymentMethods.forEach(m => m.classList.remove('selected'));
       method.classList.add('selected');
-      
+
       const radio = method.querySelector('input[type="radio"]');
       if (radio) radio.checked = true;
+
+      const methodId = method.dataset.methodId;
+      const methodData = window._paymentMethods?.find(m => m.id === methodId);
+      if (methodData) {
+        showPaymentInfo(methodData);
+      } else if (radio?.value === 'stripe') {
+        const cardSection = document.getElementById('stripe-card-section');
+        if (cardSection) cardSection.style.display = 'block';
+        const infoBox = document.getElementById('payment-info-box');
+        if (infoBox) infoBox.style.display = 'none';
+      }
     });
   });
+}
+
+// Show account details or Stripe card based on selected method
+function showPaymentInfo(method) {
+  const infoBox  = document.getElementById('payment-info-box');
+  const cardSection = document.getElementById('stripe-card-section');
+
+  if (method.type === 'stripe') {
+    if (infoBox) infoBox.style.display = 'none';
+    if (cardSection) cardSection.style.display = 'block';
+    return;
+  }
+
+  if (cardSection) cardSection.style.display = 'none';
+  if (!infoBox) return;
+
+  const hasDetails = method.account_name || method.account_number || method.instructions;
+  if (!hasDetails) {
+    infoBox.style.display = 'none';
+    return;
+  }
+
+  infoBox.style.display = 'flex';
+  infoBox.innerHTML = `
+    <div class="payment-info-icon">
+      ${method.logo_url
+        ? `<img src="${method.logo_url}" alt="${method.name}" class="payment-info-logo" onerror="this.style.display='none'">`
+        : `<i data-lucide="${method.icon_name || 'credit-card'}"></i>`
+      }
+    </div>
+    <div class="payment-info-details">
+      <h4>${method.name}</h4>
+      ${method.account_name ? `
+        <div class="payment-info-account-row">
+          <span class="payment-info-label">Non Kont:</span>
+          <span class="payment-info-value">${method.account_name}</span>
+        </div>` : ''}
+      ${method.account_number ? `
+        <div class="payment-info-account-row">
+          <span class="payment-info-label">Nimewo:</span>
+          <span class="payment-info-value">${method.account_number}</span>
+          <button class="payment-copy-btn" onclick="copyToClipboard('${method.account_number}')" title="Kopye">
+            <i data-lucide="copy"></i>
+          </button>
+        </div>` : ''}
+      ${method.instructions ? `<p class="payment-info-instructions">${method.instructions}</p>` : ''}
+    </div>
+  `;
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+// Copy number to clipboard
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.payment-copy-btn');
+    if (btn) {
+      btn.innerHTML = '<i data-lucide="check"></i>';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      setTimeout(() => {
+        btn.innerHTML = '<i data-lucide="copy"></i>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }, 2000);
+    }
+  }).catch(() => {});
 }
 
 // Update donation summary
@@ -192,18 +326,20 @@ function formatAmount(amount, currency) {
 
 // Donation form submission
 function initDonationForm() {
-  const form = document.querySelector('.donation-form');
-  if (!form) return;
+  const submitBtn = document.querySelector('.submit-donation-btn');
+  if (!submitBtn) return;
 
-  form.addEventListener('submit', async (e) => {
+  submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    
     const selectedCause = document.querySelector('.cause-card.selected');
     const selectedPayment = document.querySelector('.payment-method.selected input');
     const amount = getSelectedAmount();
     const currency = document.querySelector('.currency-btn.selected')?.dataset.currency || 'HTG';
+    const donorName = document.querySelector('input[name="donor_name"]')?.value || null;
+    const donorEmail = document.querySelector('input[name="donor_email"]')?.value || null;
+    const donorPhone = document.querySelector('input[name="donor_phone"]')?.value || null;
+    const isAnonymous = document.querySelector('input[name="is_anonymous"]')?.checked || false;
 
     if (!amount || amount <= 0) {
       showError('Tanpri chwazi yon montan / Please select an amount');
@@ -215,21 +351,42 @@ function initDonationForm() {
       return;
     }
 
+    const isStripe = window.stripeUtils?.isStripeSelected();
+    if (isStripe && !window.stripeUtils?.isReady()) {
+      showError('Stripe pa disponib. Tanpri kontakte nou. / Stripe is not available.');
+      return;
+    }
+
     const donationData = {
-      donor_name: formData.get('donor_name') || null,
-      donor_email: formData.get('donor_email') || null,
-      donor_phone: formData.get('donor_phone') || null,
+      donor_name: donorName,
+      donor_email: donorEmail,
+      donor_phone: donorPhone,
       amount: amount,
       currency: currency,
       payment_method: selectedPayment.value,
       cause_id: selectedCause?.dataset.causeId || null,
       cause_name: selectedCause?.dataset.causeName || 'Jeneral TRAPOSA',
-      message: formData.get('message') || null,
-      is_anonymous: formData.get('is_anonymous') === 'on',
+      is_anonymous: isAnonymous,
       status: 'pending'
     };
 
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span style="opacity:0.7;">Trete pèman...</span>';
+
     try {
+      if (isStripe) {
+        // Charge the card via Edge Function + confirmCardPayment
+        const paymentIntent = await window.stripeUtils.confirmPayment({
+          amount,
+          currency,
+          donorEmail,
+          donorName,
+          causeName: donationData.cause_name,
+        });
+        donationData.stripe_payment_intent_id = paymentIntent.id;
+        donationData.status = 'confirmed';
+      }
+
       // Save to Supabase
       const { data, error } = await supabase
         ?.from('traposa_donations')
@@ -239,17 +396,19 @@ function initDonationForm() {
 
       if (error) throw error;
 
-      // Show success modal
       showSuccessModal(donationData, data?.id);
 
-      // Generate receipt if not anonymous
       if (!donationData.is_anonymous && donationData.donor_email) {
         generateReceipt(donationData, data?.id);
       }
 
-    } catch (error) {
-      console.error('Error saving donation:', error);
-      showError('Gen yon erè. Tanpri eseye ankò. / There was an error. Please try again.');
+    } catch (err) {
+      console.error('Error processing donation:', err);
+      showError(err.message || 'Gen yon erè. Tanpri eseye ankò. / There was an error. Please try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i data-lucide="lock" style="width: 18px; height: 18px;"></i><span data-i18n="don_submit">Kontribye Kounye a</span>';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
     }
   });
 }

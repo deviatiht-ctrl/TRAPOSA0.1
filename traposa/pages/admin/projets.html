@@ -20,6 +20,7 @@
         <li><a href="./dashboard.html" class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
         <li><a href="./projets.html" class="admin-nav-link active"><i data-lucide="folder"></i>Projè</a></li>
         <li><a href="./actualites.html" class="admin-nav-link"><i data-lucide="file-text"></i>Aktualite</a></li>
+        <li><a href="./galerie.html" class="admin-nav-link"><i data-lucide="image"></i>Galeri</a></li>
         <li><a href="./dons.html" class="admin-nav-link"><i data-lucide="heart"></i>Don</a></li>
         <li><a href="./equipe.html" class="admin-nav-link"><i data-lucide="users"></i>Ekip</a></li>
         <li><a href="./parametres.html" class="admin-nav-link"><i data-lucide="settings"></i>Paramèt</a></li>
@@ -30,6 +31,10 @@
   <main class="admin-main">
     <div class="admin-header">
       <h1>Jere Projè</h1>
+      <a href="../../index.html" class="btn btn-outline">
+        <i data-lucide="home"></i>
+        <span>Retounen nan Sit</span>
+      </a>
       <a href="?action=new" class="btn btn-primary"><i data-lucide="plus"></i>Nouvo Pwojè</a>
     </div>
 
@@ -62,31 +67,8 @@
             <th>Aksyon</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>Lekòl Pou Tout</strong></td>
-            <td>Edikasyon</td>
-            <td>Nò</td>
-            <td>G150,000</td>
-            <td>G67,000</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Klinik Mobil</strong></td>
-            <td>Sante</td>
-            <td>Sid</td>
-            <td>G200,000</td>
-            <td>G156,000</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-              <button class="table-btn delete"><i data-lucide="trash-2"></i></button>
-            </td>
-          </tr>
+        <tbody id="projectsTable">
+          <!-- Projects loaded dynamically from Supabase -->
         </tbody>
       </table>
       <div class="admin-pagination">
@@ -98,6 +80,91 @@
     </div>
   </main>
 
+  <!-- Modal for Add/Edit Project -->
+  <div id="projectModal" class="admin-modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Nouvo Pwojè</h2>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <form id="projectForm" class="modal-form">
+        <input type="hidden" id="projectId">
+        <div class="form-group">
+          <label class="form-label">Tit *</label>
+          <input type="text" class="form-input" id="projectTitle" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Slug</label>
+          <input type="text" class="form-input" id="projectSlug">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Deskripsyon</label>
+          <textarea class="form-textarea" rows="3" id="projectDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kategori *</label>
+          <select class="form-select" id="projectCategory" required>
+            <option value="Edikasyon">Edikasyon</option>
+            <option value="Sante">Sante</option>
+            <option value="Agrikilti">Agrikilti</option>
+            <option value="Anviwonman">Anviwonman</option>
+            <option value="Ijans">Ijans</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Lokasyon</label>
+            <input type="text" class="form-input" id="projectLocation">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Depatman</label>
+            <input type="text" class="form-input" id="projectDepartment">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Goal (G)</label>
+            <input type="number" class="form-input" id="projectGoal" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kolekte (G)</label>
+            <input type="number" class="form-input" id="projectRaised" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Benefisiè</label>
+            <input type="number" class="form-input" id="projectBeneficiaires" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="projectStatus">
+              <option value="active">Aktif</option>
+              <option value="planning">An Planifikasyon</option>
+              <option value="paused">Poze</option>
+              <option value="completed">Fin</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Imaj Kouvèti</label>
+          <input type="file" class="form-input" id="projectImage" accept="image/*">
+          <div id="imagePreview" class="image-preview"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Featured</label>
+          <input type="checkbox" id="projectFeatured">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">Anile</button>
+          <button type="submit" class="btn btn-primary">Sove</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/projets.js"></script>
 </body>
 </html>

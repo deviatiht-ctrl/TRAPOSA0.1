@@ -16,24 +16,31 @@ async function initHeroStats() {
   if (!statsContainer) return;
 
   try {
-    // Aggregate stats from various tables
-    const [projetsRes, donationsRes] = await Promise.all([
-      supabase?.from('traposa_projets').select('status').eq('status', 'active'),
-      supabase?.from('traposa_donations').select('amount').eq('status', 'confirmed')
-    ]);
+    // Load stats from traposa_settings
+    const { data: settings, error } = await supabase
+      ?.from('traposa_settings')
+      .select('stat_beneficiaires, stat_projets, stat_benevoles, stat_departements')
+      .single();
 
-    // Default values if Supabase not available
-    const activeProjects = projetsRes?.data?.length || 6;
-    const totalDonations = donationsRes?.data?.reduce((sum, d) => sum + (d.amount || 0), 0) || 125000;
+    if (error) throw error;
+
+    const stats = settings || {
+      stat_beneficiaires: 10000,
+      stat_projets: 3,
+      stat_benevoles: 50,
+      stat_departements: 3
+    };
 
     // Update DOM
     const beneficiairesEl = document.querySelector('[data-stat="beneficiaires"]');
     const projetsEl = document.querySelector('[data-stat="projets"]');
-    const donsEl = document.querySelector('[data-stat="dons"]');
+    const benevolesEl = document.querySelector('[data-stat="benevoles"]');
+    const departementsEl = document.querySelector('[data-stat="departements"]');
 
-    if (beneficiairesEl) animateNumber(beneficiairesEl, 12450);
-    if (projetsEl) animateNumber(projetsEl, activeProjects);
-    if (donsEl) animateNumber(donsEl, totalDonations, 'HTG ');
+    if (beneficiairesEl) animateNumber(beneficiairesEl, stats.stat_beneficiaires || 10000);
+    if (projetsEl) animateNumber(projetsEl, stats.stat_projets || 3);
+    if (benevolesEl) animateNumber(benevolesEl, stats.stat_benevoles || 50);
+    if (departementsEl) animateNumber(departementsEl, stats.stat_departements || 3);
   } catch (error) {
     console.warn('Could not load stats:', error);
     // Use default values
@@ -98,25 +105,41 @@ function initProjectsFilter() {
   });
 }
 
-// Load impact stats - using default values (settings table uses named columns, not key-value)
+// Load impact stats from database
 async function loadImpactStats() {
-  // traposa_settings uses named columns (org_name, slogan, etc.), not key-value pattern
-  // Using hardcoded defaults for impact stats
-  const statsDefaults = {
-    beneficiaires: 12450,
-    projets: 48,
-    benevoles: 500,
-    dons: 450000
-  };
+  try {
+    const { data: settings, error } = await supabase
+      ?.from('traposa_settings')
+      .select('stat_beneficiaires, stat_projets, stat_benevoles, stat_experience, stat_komin')
+      .single();
 
-  // Update impact items with default values
-  document.querySelectorAll('.impact-item').forEach(item => {
-    const numberEl = item.querySelector('.impact-number');
-    if (!numberEl) return;
+    if (error) throw error;
 
-    const statType = numberEl.dataset.stat; // beneficiaires, projets, benevoles, dons
-    numberEl.dataset.target = statsDefaults[statType] || 0;
-  });
+    const stats = settings || {
+      stat_beneficiaires: 10000,
+      stat_projets: 3,
+      stat_benevoles: 50,
+      stat_experience: 3,
+      stat_komin: 5
+    };
+
+    // Update impact items with database values
+    document.querySelectorAll('.impact-item').forEach(item => {
+      const numberEl = item.querySelector('.impact-number');
+      if (!numberEl) return;
+
+      const statType = numberEl.dataset.stat; // beneficiaires, projets, experience, komin
+      const statMap = {
+        beneficiaires: stats.stat_beneficiaires,
+        projets: stats.stat_projets,
+        experience: stats.stat_experience,
+        komin: stats.stat_komin
+      };
+      numberEl.dataset.target = statMap[statType] || 0;
+    });
+  } catch (error) {
+    console.warn('Could not load impact stats:', error);
+  }
 }
 
 // Impact counter animation

@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://js.stripe.com/v3/"></script>
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
@@ -90,22 +91,22 @@
           <div class="form-section">
             <h3><span class="step-number">3</span> <span data-i18n="don_step3">Metòd Pèman</span></h3>
             <div class="payment-methods">
-              <label class="payment-method selected">
-                <input type="radio" name="payment" value="moncash" checked>
-                <div class="payment-icon"><i data-lucide="smartphone"></i></div>
-                <span class="payment-label">MonCash</span>
-              </label>
-              <label class="payment-method">
-                <input type="radio" name="payment" value="natcash">
-                <div class="payment-icon"><i data-lucide="wallet"></i></div>
-                <span class="payment-label">NatCash</span>
-              </label>
-              <label class="payment-method">
-                <input type="radio" name="payment" value="stripe">
-                <div class="payment-icon"><i data-lucide="credit-card"></i></div>
-                <span class="payment-label" data-i18n="don_credit_card">Kat Kredi</span>
-              </label>
+              <!-- Metòd pèman chaje dinamikman soti nan Supabase -->
+              <div class="payment-method-loading" style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div style="height:58px;background:var(--clr-bg-soft);border-radius:var(--radius-lg);animation:pulse 1.5s infinite;"></div>
+                <div style="height:58px;background:var(--clr-bg-soft);border-radius:var(--radius-lg);animation:pulse 1.5s infinite 0.2s;"></div>
+                <div style="height:58px;background:var(--clr-bg-soft);border-radius:var(--radius-lg);animation:pulse 1.5s infinite 0.4s;"></div>
+              </div>
             </div>
+
+            <!-- Enfòmasyon kont pèman (parèt lè yon metòd chwazi) -->
+            <div id="payment-info-box" class="payment-info-box" style="display:none;"></div>
+          </div>
+
+          <!-- Stripe Card Element -->
+          <div id="stripe-card-section" class="stripe-card-section" style="display:none;">
+            <div id="stripe-card-element" class="stripe-card-element"></div>
+            <div id="stripe-card-errors" class="stripe-card-errors" role="alert"></div>
           </div>
 
           <!-- Donor Info -->
@@ -218,6 +219,7 @@
   <script src="../assets/js/supabase-client.js"></script>
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/stripe-donation.js"></script>
   <script src="../assets/js/don.js"></script>
 </body>
 </html>

@@ -66,6 +66,9 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-link {
@@ -148,6 +151,13 @@
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
+}
+
+.auth-btn i,
+.auth-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block;
 }
 
 .auth-btn:hover {

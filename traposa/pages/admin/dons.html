@@ -35,14 +35,14 @@
     <div class="admin-stats">
       <div class="admin-stat-card">
         <div class="admin-stat-content">
-          <div class="admin-stat-value">G450K</div>
-          <div class="admin-stat-label">Total Ane Sa</div>
+          <div class="admin-stat-value" id="statTotalDons">G0</div>
+          <div class="admin-stat-label">Total Donasyon</div>
         </div>
       </div>
       <div class="admin-stat-card">
         <div class="admin-stat-content">
-          <div class="admin-stat-value">156</div>
-          <div class="admin-stat-label">Don Mwa Sa</div>
+          <div class="admin-stat-value" id="statCountDons">0</div>
+          <div class="admin-stat-label">Kantite Don</div>
         </div>
       </div>
     </div>
@@ -59,28 +59,15 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>2 jou pase</td>
-            <td>Marie B.</td>
-            <td>Edikasyon</td>
-            <td>G1,000</td>
-            <td>MonCash</td>
-            <td><span class="admin-status confirmed">Konfime</span></td>
-          </tr>
-          <tr>
-            <td>3 jou pase</td>
-            <td>Jean D.</td>
-            <td>Sante</td>
-            <td>$50</td>
-            <td>Stripe</td>
-            <td><span class="admin-status confirmed">Konfime</span></td>
-          </tr>
+        <tbody id="donsTable">
+          <tr><td colspan="6" style="text-align:center;padding:2rem;">Chajman don yo...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
   <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/dons.js"></script>
 </body>
 </html>

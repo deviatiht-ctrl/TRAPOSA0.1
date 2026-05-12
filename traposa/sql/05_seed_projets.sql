@@ -9,13 +9,14 @@ INSERT INTO traposa_causes (name, description, icon, goal_amount, raised_amount,
 ('Sante Kominote', 'Sèvis sante debaz pou kominote vilnerab', 'Heart', 400000, 156000, 4),
 ('Jeneral TRAPOSA', 'Fonksyònman jeneral òganizasyon an', null, null, 12000, 5);
 
--- Insert real TRAPOSA projects
+-- Insert real TRAPOSA projects (handle duplicates)
 INSERT INTO traposa_projets (title, slug, description, category, location, department, beneficiaires, goal_amount, raised_amount, status, is_featured, is_published, display_order) VALUES
 ('Restriktirasyion Lekòl Nasyonal Bè-de-En', 'restriktirasyion-lekol-be-de-en', 'Restriktire lekòl nasyonal Bè-de-En pou bay plis timoun aksè a edikasyon nan depatman Nòdwès.', 'Edikasyon', 'Baie-de-Henne', 'Nòdwès', 850, 1000000, 700000, 'active', true, true, 1),
 ('Sipò Timoun Vilnerab — Nòdwès', 'sipo-timoun-vilnerab-nodwes', 'Pwogram sipò pou timoun vilnerab nan depatman Nòdwès: manje, rad, ak founiti lekòl.', 'Edikasyon', 'Depatman Nòdwès', 'Nòdwès', 1200, 300000, 180000, 'active', true, true, 2),
-('Pwogram Edikasyon Pou Tout', 'pwogram-edikasyon-pou-tout', 'Elaji aksè a edikasyon pou timoun vilnerab nan plizyè depatman Ayiti.', 'Edikasyon', 'Plizyè Depatman', 'Nasyonal', 8000, 200000, 85000, 'active', true, true, 3);
+('Pwogram Edikasyon Pou Tout', 'pwogram-edikasyon-pou-tout', 'Elaji aksè a edikasyon pou timoun vilnerab nan plizyè depatman Ayiti.', 'Edikasyon', 'Plizyè Depatman', 'Nasyonal', 8000, 200000, 85000, 'active', true, true, 3)
+ON CONFLICT (slug) DO NOTHING;
 
--- Insert real TRAPOSA news articles
+-- Insert real TRAPOSA news articles (handle duplicates)
 INSERT INTO traposa_actualites (title, slug, content, excerpt, cover_image_url, category, is_published, published_at) VALUES
 ('Lekòl nasyonal Bè-de-En restriktire grasa TRAPOSA', 'lekol-be-de-en-restriktire', 
 '<p>TRAPOSA reyisi restriktire lekòl nasyonal Bè-de-En nan depatman Nòdwès, ki bay plis timoun aksè a edikasyon de kalite.</p>
@@ -37,21 +38,24 @@ null, 'rapò', true, now() - interval '7 days'),
 <p>Jès jenere sa a pèmèt TRAPOSA kontinye travay li pou timoun vilnerab yo. Djina, ki se yon Ayisyen ki kwè nan pouvwa edikasyon, chwazi TRAPOSA kòm patnè pou enpak li.</p>
 <p>"Chak timoun merite yon chans," di Djina. "M espere don sa a ka ede yo reyalize rèv yo."</p>',
 'Otè Djina Guillet Delatour voye yon pati nan resèt liv li bay TRAPOSA pou soutni timoun ki nan bezwen.', 
-null, 'partenariat', true, now() - interval '14 days');
+null, 'partenariat', true, now() - interval '14 days')
+ON CONFLICT (slug) DO NOTHING;
 
--- Insert sample team members
+-- Insert sample team members (handle duplicates)
 INSERT INTO traposa_equipe (full_name, role, bio, department, email, is_active, display_order) VALUES
 ('Dr. Claire Beaumont', 'Direktris Egzekitif', 'Ekspè sante piblik ak 15 an eksperyans nan sektè imanitè a. Ancienn Direktris Pwogram pou Oganizasyon Entènasyonal Sante.', 'Direksyon', 'claire.beaumont@traposa.ht', true, 1),
 ('Jean-Michel Toussaint', 'Direktè Pwogram', 'Spesyalis devlopman kominote ak fòmasyon an agrikilti dirab. 10 zan eksperyans nan jesyon pwofe rural.', 'Pwogram', 'jmtoussaint@traposa.ht', true, 2),
 ('Sophie Laroche', 'Kòdinatris Kominikasyon', 'Jounalis ak ekspè kominikasyon pou òganizasyon sosyal. Ancienn korespondan pou radyo entènasyonal.', 'Kominikasyon', 'sophie.laroche@traposa.ht', true, 3),
 ('Marc-Antoine Jean', 'Koòdonatè Finans', 'Ekspè kontablite ak jesyon fon. Sètifiye CPA ak eksperyans nan òganizasyon san bi likratif.', 'Finans', 'ma.jean@traposa.ht', true, 4),
-('Dr. Rose-Marie Joseph', 'Direktris Sante', 'Doktè ak espesyalis sante kominotè. 8 ane eksperyans nan klinik mobil ak pwogram sante prevantif.', 'Sante', 'rm.joseph@traposa.ht', true, 5);
+('Dr. Rose-Marie Joseph', 'Direktris Sante', 'Doktè ak espesyalis sante kominotè. 8 ane eksperyans nan klinik mobil ak pwogram sante prevantif.', 'Sante', 'rm.joseph@traposa.ht', true, 5)
+ON CONFLICT (email) DO NOTHING;
 
--- Insert real TRAPOSA partners
+-- Insert real TRAPOSA partners (handle duplicates)
 INSERT INTO traposa_partenaires (name, logo_url, website_url, category, description, is_active, display_order) VALUES
 ('Djina Guillet Delatour', null, null, 'Donatè', 'Otè ki apiye TRAPOSA — yon pati nan resèt liv li ale dirèkteman bay timoun ki nan bezwen.', true, 1),
 ('Kominote Bè-de-En', null, null, 'Kominote', 'Kominote lokal ki travay ansanm ak TRAPOSA pou amelyore edikasyon nan zòn nan.', true, 2),
-('Inisyativ Solidè', null, null, 'Finansye', 'Patnè ki kontribye nan finanse pwogram sipò timoun vilnerab yo.', true, 3);
+('Inisyativ Solidè', null, null, 'Finansye', 'Patnè ki kontribye nan finanse pwogram sipò timoun vilnerab yo.', true, 3)
+ON CONFLICT (name) DO NOTHING;
 
 -- Update default settings with real organization data
 UPDATE traposa_settings SET
@@ -70,5 +74,29 @@ UPDATE traposa_settings SET
   youtube_url       = 'https://youtube.com/traposa',
   mission_pilier1_title = 'Edike',
   mission_pilier2_title = 'Sipòte',
-  mission_pilier3_title = 'Pwoteje'
+  mission_pilier3_title = 'Pwoteje',
+  stat_beneficiaires = 10000,
+  stat_projets = 3,
+  stat_benevoles = 50,
+  stat_departements = 3,
+  stat_experience = 3,
+  stat_komin = 5,
+  stat_dons_total = 450000
 WHERE id = (SELECT id FROM traposa_settings LIMIT 1);
+
+-- If no settings exist, insert with values
+INSERT INTO traposa_settings (
+  org_name, slogan, contact_email, phone, address,
+  moncash_number, natcash_number, bank_name, bank_account,
+  facebook_url, instagram_url, twitter_url, youtube_url,
+  mission_pilier1_title, mission_pilier2_title, mission_pilier3_title,
+  stat_beneficiaires, stat_projets, stat_benevoles, stat_departements,
+  stat_experience, stat_komin, stat_dons_total
+)
+SELECT
+  'TRAPOSA', 'TRANSFORMER pour Sauver', 'info@traposa.ht', '+509 2813-4567', 'Rue Capois, Pòtoprens, Ayiti',
+  '+509 1234-5678', '+509 8765-4321', 'Sogebank', '1234567890',
+  'https://facebook.com/traposa', 'https://instagram.com/traposa', 'https://twitter.com/traposa', 'https://youtube.com/traposa',
+  'Edike', 'Sipòte', 'Pwoteje',
+  10000, 3, 50, 3, 3, 5, 450000
+WHERE NOT EXISTS (SELECT 1 FROM traposa_settings);

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initScrollEffects();
   initLanguageSwitcher();
+  lucide.createIcons();
 });
 
 // Navbar initialization

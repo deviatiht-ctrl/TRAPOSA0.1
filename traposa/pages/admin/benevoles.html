@@ -39,31 +39,15 @@
             <th>Aksyon</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>Pierre Joseph</strong></td>
-            <td>pierre@email.com</td>
-            <td>Agrikilti, Konstwiksyon</td>
-            <td><span class="admin-status pending">An atant</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="check"></i></button>
-              <button class="table-btn delete"><i data-lucide="x"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Marie Louis</strong></td>
-            <td>marie@email.com</td>
-            <td>Anseyman, Sante</td>
-            <td><span class="admin-status active">Aktif</span></td>
-            <td class="table-actions">
-              <button class="table-btn"><i data-lucide="edit"></i></button>
-            </td>
-          </tr>
+        <tbody id="benevolesTable">
+          <tr><td colspan="5" style="text-align:center;padding:2rem;">Chajman bénévòl...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
   <script>lucide.createIcons();</script>
+  <script src="../../assets/js/supabase-client.js"></script>
+  <script src="../../assets/js/admin/benevoles.js"></script>
 </body>
 </html>

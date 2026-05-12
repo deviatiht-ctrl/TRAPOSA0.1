@@ -28,6 +28,13 @@ CREATE TABLE traposa_settings (
   mission_pilier2_desc text,
   mission_pilier3_title text DEFAULT 'Proteje',
   mission_pilier3_desc text,
+  stat_beneficiaires integer DEFAULT 10000,
+  stat_projets integer DEFAULT 3,
+  stat_benevoles integer DEFAULT 50,
+  stat_departements integer DEFAULT 3,
+  stat_experience integer DEFAULT 3,
+  stat_komin integer DEFAULT 5,
+  stat_dons_total numeric DEFAULT 450000,
   maintenance_mode boolean DEFAULT false,
   created_at timestamptz DEFAULT now(),
   updated_at timestamptz DEFAULT now()

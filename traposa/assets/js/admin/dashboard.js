@@ -17,25 +17,35 @@ class AdminDashboard {
   }
 
   async loadStats() {
-    // traposa_settings uses named columns (org_name, slogan, etc.), not key-value pattern
-    // Using hardcoded defaults for stats
-    const statsDefaults = {
-      stat_dons_total: 450000,
-      stat_beneficiaires: 12450,
-      stat_projets: 48,
-      stat_benevoles: 500
-    };
+    try {
+      const { data: settings, error } = await window.supabaseClient
+        .from('traposa_settings')
+        .select('stat_beneficiaires, stat_projets, stat_benevoles, stat_dons_total')
+        .single();
 
-    // Update UI with default values
-    const donsEl = document.getElementById('statDons');
-    const benefEl = document.getElementById('statBeneficiaires');
-    const projEl = document.getElementById('statProjets');
-    const benEl = document.getElementById('statBenevoles');
+      // Use database values or defaults
+      const stats = settings || {
+        stat_beneficiaires: 10000,
+        stat_projets: 3,
+        stat_benevoles: 50,
+        stat_dons_total: 450000
+      };
 
-    if (donsEl) donsEl.textContent = 'G' + statsDefaults.stat_dons_total.toLocaleString();
-    if (benefEl) benefEl.textContent = statsDefaults.stat_beneficiaires.toLocaleString();
-    if (projEl) projEl.textContent = statsDefaults.stat_projets.toLocaleString();
-    if (benEl) benEl.textContent = statsDefaults.stat_benevoles.toLocaleString() + '+';
+      // Update UI with database values
+      const donsEl = document.getElementById('statDons');
+      const benefEl = document.getElementById('statBeneficiaires');
+      const projEl = document.getElementById('statProjets');
+      const benEl = document.getElementById('statBenevoles');
+
+      // Use nullish coalescing operator (??) so 0 is treated as a valid value instead of falsy
+      if (donsEl) donsEl.textContent = 'G' + (stats.stat_dons_total ?? 450000).toLocaleString();
+      if (benefEl) benefEl.textContent = (stats.stat_beneficiaires ?? 10000).toLocaleString();
+      if (projEl) projEl.textContent = (stats.stat_projets ?? 3).toLocaleString();
+      if (benEl) benEl.textContent = (stats.stat_benevoles ?? 50).toLocaleString() + '+';
+    } catch (error) {
+      console.error('Error loading stats:', error);
+      // Use default values on error
+    }
   }
 
   updateStatDisplay(className, value, prefix = '') {
@@ -47,8 +57,8 @@ class AdminDashboard {
 
   async loadRecentDonations() {
     try {
-      const { data: donations, error } = await supabase
-        ?.from('traposa_donations')
+      const { data: donations, error } = await window.supabaseClient
+        .from('traposa_donations')
         .select('*')
         .eq('status', 'confirmed')
         .order('created_at', { ascending: false })

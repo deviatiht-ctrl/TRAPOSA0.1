@@ -17,8 +17,14 @@
     </div>
     <nav>
       <ul class="admin-nav">
-        <li><a href="./dashboard.html" class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
-        <li><a href="./parametres.html" class="admin-nav-link active"><i data-lucide="settings"></i>Paramèt</a></li>
+        <li><a href="./dashboard.html"      class="admin-nav-link"><i data-lucide="layout-dashboard"></i>Tablo</a></li>
+        <li><a href="./projets.html"         class="admin-nav-link"><i data-lucide="folder"></i>Projè</a></li>
+        <li><a href="./actualites.html"      class="admin-nav-link"><i data-lucide="file-text"></i>Aktualite</a></li>
+        <li><a href="./galerie.html"         class="admin-nav-link"><i data-lucide="image"></i>Galeri</a></li>
+        <li><a href="./dons.html"            class="admin-nav-link"><i data-lucide="heart"></i>Don</a></li>
+        <li><a href="./equipe.html"          class="admin-nav-link"><i data-lucide="users"></i>Ekip</a></li>
+        <li><a href="./payment-methods.html" class="admin-nav-link"><i data-lucide="credit-card"></i>Metòd Pèman</a></li>
+        <li><a href="./parametres.html"      class="admin-nav-link active"><i data-lucide="settings"></i>Paramèt</a></li>
       </ul>
     </nav>
   </aside>
@@ -63,26 +69,13 @@
 
       <div class="settings-section">
         <h4>Pèman</h4>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">MonCash Nimewo</label>
-            <input type="text" class="form-input" placeholder="+509...">
-          </div>
-          <div class="form-group">
-            <label class="form-label">NatCash Nimewo</label>
-            <input type="text" class="form-input" placeholder="+509...">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Non Bank</label>
-            <input type="text" class="form-input">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Kont Bank</label>
-            <input type="text" class="form-input">
-          </div>
-        </div>
+        <p style="color:#6b7280;font-size:0.875rem;margin-bottom:1rem;">
+          Jere tout metòd pèman yo (MonCash, NatCash, Kat Kredi, etc.) ak nimewo kont ak logo yo nan paj dedye a.
+        </p>
+        <a href="./payment-methods.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+          <i data-lucide="credit-card" style="width:18px;height:18px;"></i>
+          Jere Metòd Pèman
+        </a>
       </div>
 
       <div class="settings-section">
@@ -91,31 +84,31 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Benefisiè Dirèk</label>
-            <input type="number" class="form-input" id="statBeneficiaires" value="12450" min="0">
+            <input type="number" class="form-input" id="statBeneficiaires" min="0">
           </div>
           <div class="form-group">
             <label class="form-label">Projè Aktif</label>
-            <input type="number" class="form-input" id="statProjets" value="48" min="0">
+            <input type="number" class="form-input" id="statProjets" min="0">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Bénévòl Aktif</label>
-            <input type="number" class="form-input" id="statBenevoles" value="500" min="0">
+            <input type="number" class="form-input" id="statBenevoles" min="0">
           </div>
           <div class="form-group">
             <label class="form-label">Total Don (Goud)</label>
-            <input type="number" class="form-input" id="statDons" value="450000" min="0">
+            <input type="number" class="form-input" id="statDons" min="0">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Komin Travay</label>
-            <input type="number" class="form-input" id="statKomin" value="23" min="0">
+            <input type="number" class="form-input" id="statKomin" min="0">
           </div>
           <div class="form-group">
             <label class="form-label">Lane Eskperyans</label>
-            <input type="number" class="form-input" id="statExperience" value="10" min="0">
+            <input type="number" class="form-input" id="statExperience" min="0">
           </div>
         </div>
       </div>

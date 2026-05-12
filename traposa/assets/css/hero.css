@@ -6,9 +6,21 @@
   align-items: center;
   padding-top: calc(var(--navbar-height) + var(--space-8));
   padding-bottom: var(--space-16);
-  background: var(--clr-bg);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 30%, #dcfce7 60%, #bbf7d0 100%) !important;
   position: relative;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 60%),
+              radial-gradient(circle at 80% 30%, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .hero-grid {
